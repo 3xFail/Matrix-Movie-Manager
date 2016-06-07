@@ -1,0 +1,27 @@
+﻿<Window x:Class="Matrix_Movie_Manager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Matrix_Movie_Manager"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowState="Maximized" WindowStyle="None"  Height="1080" Width="1920">
+
+    <Border BorderBrush="Black" BorderThickness="5">
+        <Grid Background="Maroon">
+            <Frame x:Name="Main_Frame" HorizontalAlignment="Left" Height="1042" Margin="230,10,0,0" VerticalAlignment="Top" Width="1662" Grid.Column="1" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+
+            <Border BorderBrush="Black" BorderThickness="3">
+                <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Height="1042" Margin="10,10,0,0" VerticalAlignment="Top" Width="205" Background="Gray">
+                    <!--Need to Find a way to space things-->
+                    <Button x:Name="My_Movies_Butt" Content="My Movies" Height="80" Click="My_Movies_Butt_Click" />
+                    <Button x:Name="Do_Have_Butt" Content="Do I have this?" Height="80" Click="Do_Have_Butt_Click" />
+                    <Button x:Name="Search_Butt" Content="Search for a New Movie" Height="80" Click="Search_Butt_Click" />
+                    <Button x:Name="Suggest_Butt" Content="Suggest a Movie" Height="80" Click="Suggest_Butt_Click" />
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </Border>
+</Window>
