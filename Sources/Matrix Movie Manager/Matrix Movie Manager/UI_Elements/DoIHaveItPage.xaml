@@ -5,12 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Matrix_Movie_Manager.UI_Elements"
       mc:Ignorable="d" 
-      d:DesignHeight="1029" d:DesignWidth="1680"
+      d:DesignHeight="1000" d:DesignWidth="1680"
       Title="DoIHaveItPage">
 
     <Border BorderBrush="Black" BorderThickness="3">
         <Grid Background="Crimson">
-            
+            <Label x:Name="Do_I_Have" Content="Do I have this???" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" Height="130" Margin="627,292,0,0" VerticalAlignment="Top" Width="485"/>
+            <TextBox x:Name="Input_Box"  HorizontalAlignment="Left" Height="65" Margin="327,422,0,0" FontSize="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="950"/>
+            <Button x:Name="Do_I_Have_it_button" Content="Search" HorizontalAlignment="Left" Height="65" Margin="1277,422,0,0" VerticalAlignment="Top" Width="140" Click="Do_I_Have_it_button_Click"/>
+            <Button x:Name="Back_button" Content="Back" HorizontalAlignment="Left" Height="90" Margin="1457,867,0,0" VerticalAlignment="Top" Width="185" Click="Back_button_Click"/>
+
         </Grid>
     </Border>
 </Page>

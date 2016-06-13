@@ -34,7 +34,7 @@ namespace Matrix_Movie_Manager
 
         private void Do_Have_Butt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main_Frame.Navigate(new DoIHaveItPage(this));
         }
 
         private void Search_Butt_Click(object sender, RoutedEventArgs e)
@@ -45,6 +45,11 @@ namespace Matrix_Movie_Manager
         private void Suggest_Butt_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Settings_Butt_Click(object sender, RoutedEventArgs e)
+        {
+            Main_Frame.Navigate(new SettingsPage(this));
         }
     }
 }

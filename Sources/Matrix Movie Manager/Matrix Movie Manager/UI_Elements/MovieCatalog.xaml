@@ -5,22 +5,16 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Matrix_Movie_Manager.UI_Elements"
       mc:Ignorable="d" 
-      d:DesignHeight="1029" d:DesignWidth="1680"
+      d:DesignHeight="1000" d:DesignWidth="1680"
       Title="MovieCatalog">
 
     <Border BorderBrush="Black" BorderThickness="5">
         <Grid Background="Gray">
-            <ScrollViewer HorizontalAlignment="Left" Height="939" Margin="130,70,0,0" VerticalAlignment="Top" Width="1530">
-                <Border BorderBrush="Black" BorderThickness="5">
-                    <DataGrid Background="Gray">
-                        <!--Library binding of all current movies in the selected folders-->
-                    </DataGrid>
-                </Border>
-            </ScrollViewer>
-            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="130,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="1323" FontSize="30"/>
-            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1453,10,0,0" VerticalAlignment="Top" Width="106"/>
-            <Button x:Name="Search_Button" Content="Search" HorizontalAlignment="Left" Height="55" Margin="1559,10,0,0" VerticalAlignment="Top" Width="101" Click="Search_Button_Click" />
-            <StackPanel HorizontalAlignment="Left" Height="200" Margin="8,809,0,0" VerticalAlignment="Top" Width="117">
+            
+            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="75,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="1323" FontSize="30"/>
+            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106"/>
+            <Button x:Name="Search_Button" Content="Search" HorizontalAlignment="Left" Height="55" Margin="1504,10,0,0" VerticalAlignment="Top" Width="101" Click="Search_Button_Click" />
+            <StackPanel HorizontalAlignment="Left" Height="200" Margin="10,745,0,0" VerticalAlignment="Top" Width="117">
                 <Button x:Name="Refresh_Button" Content="Refresh" Height="100" Click="Refresh_Button_Click" />
                 <Button x:Name="Close_Button" Content="Close" Height="100" Click="Close_Button_Click" />
             </StackPanel>
