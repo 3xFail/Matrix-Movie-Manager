@@ -13,7 +13,7 @@ namespace ConsoleTestingGround
         {
             //string path = @"E:\Movies";
             string[] path = { @"E:\Movies", @"E:\TV Shows" };
-            string[] filetypes = { "*.mkv", "*.mp4" };
+            string[] filetypes = { ".mkv", ".mp4" };
             Accessor accesser = new Accessor(path, filetypes);
 
 
@@ -22,13 +22,6 @@ namespace ConsoleTestingGround
                 Console.WriteLine(file);
             }
 
-
-            Console.WriteLine();
-
-            foreach (string file in accesser.Get_Filtered_Files())
-            {
-                Console.WriteLine(file);
-            }
 
             Console.WriteLine("pause");
         }
@@ -42,7 +35,7 @@ namespace ConsoleTestingGround
         {
             string[] temp;
 
-            temp = System.IO.Directory.GetFiles(path);
+            temp = System.IO.Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
             foreach (string file in temp)
             {
@@ -55,58 +48,54 @@ namespace ConsoleTestingGround
         {
             string[] temp;
 
-            temp = System.IO.Directory.GetFiles(path, "*.*" ,SearchOption.AllDirectories);
-
-            foreach (string file in temp)
+            if (file_types != null)
             {
-                all_filenames.Add(Path.GetFileName(file));
-            }
+                temp = System.IO.Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
-
-
-            foreach (string filetype in file_types)
-            {
-                string[] files;
-
-                files = System.IO.Directory.GetFiles(path, filetype, SearchOption.AllDirectories);
-
-                foreach (string file in files)
+                foreach (string file in temp)
                 {
-                    filtered_filenames.Add(Path.GetFileName(file));
+                    foreach (string type in file_types)
+                    {
+                        if (Path.GetFileName(file).Contains(type))
+                        {
+                            all_filenames.Add(Path.GetFileName(file));
+                            break;
+                        }
+                    }
+
                 }
             }
-
-
+            else
+                throw new InvalidOperationException("File type Was null");
         }
 
         //multi-path ctor
         public Accessor(string[] paths, string[] file_types)
         {
-            foreach (string path in paths)
+
+            if (paths != null && file_types != null)
             {
-                string[] temp;
-
-                temp = System.IO.Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
-
-                foreach (string file in temp)
+                foreach (string path in paths)
                 {
-                    all_filenames.Add(Path.GetFileName(file));
-                }
+                    string[] temp;
 
+                    temp = System.IO.Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
 
-
-                foreach (string filetype in file_types)
-                {
-                    string[] files;
-
-                    files = System.IO.Directory.GetFiles(path, filetype, SearchOption.AllDirectories);
-
-                    foreach (string file in files)
+                    foreach (string file in temp)
                     {
-                        filtered_filenames.Add(Path.GetFileName(file));
+                        foreach (string type in file_types)
+                        {
+                            if (Path.GetFileName(file).Contains(type))
+                            {
+                                all_filenames.Add(Path.GetFileName(file));
+                                break;
+                            }
+                        }
                     }
                 }
             }
+            else
+                throw new InvalidOperationException("Paths was null / File types was null");
         }
 
 
@@ -115,13 +104,13 @@ namespace ConsoleTestingGround
             return all_filenames.ToArray();
         }
 
-        public string[] Get_Filtered_Files()
-        {
-            return filtered_filenames.ToArray();
-        }
+        //public string[] Get_Filtered_Files()
+        //{
+        //    return filtered_filenames.ToArray();
+        //}
 
         public List<string> all_filenames = new List<string>();
-        public List<string> filtered_filenames=  new List<string>();
+        //public List<string> filtered_filenames =  new List<string>();
 
 
     }
