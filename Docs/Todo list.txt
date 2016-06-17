@@ -1,0 +1,22 @@
+Finish API call 
+	Test API call
+Create Movie view element (with and without pictures/ default bound)
+	Poster display
+	Hoving item information (title)
+Design element structure (Binary tree)
+	Implement structure
+Display catalog
+	Right click functions on each movie
+Create movie display bar (static at first? then add animation?)
+	Link VLC
+Design logging feature
+	Implement logging
+Design search
+	Implement Search
+	Implement Do I have this?
+Design recommended movie
+	Implement recommended movie
+	Link Web Browser to imdb page (data should be in the movie object from ombd query)
+Design Settings
+	Implement settings (saved file? better way?)
+	
