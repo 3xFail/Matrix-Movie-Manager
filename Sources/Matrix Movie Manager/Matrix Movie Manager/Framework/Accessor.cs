@@ -5,29 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleTestingGround
+namespace Matrix_Movie_Manager.Framework
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            string path = @"D:\Sp Test Copies";
-            //string[] path = { @"E:\Movies", @"E:\TV Shows" };
-            string[] filetypes = { ".mkv", ".mp4" };
-            Accessor accesser = new Accessor(path, filetypes);
-
-
-            foreach (string file in accesser.Get_All_Files())
-            {
-                Console.WriteLine(file);
-            }
-
-
-            Console.WriteLine("pause");
-        }
-    }
-
-
     public class Accessor
     {
         //single path constructor
@@ -107,7 +86,4 @@ namespace ConsoleTestingGround
         public List<string> all_filenames = new List<string>();
 
     }
-
-
-
 }
