@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Matrix_Movie_Manager"
         mc:Ignorable="d"
-        Title="MainWindow"
+        Title="Matrix Movie Manager"
         WindowState="Maximized" WindowStyle="SingleBorderWindow"  Height="1080" Width="1920">
 
     <Border BorderBrush="Black" BorderThickness="5">

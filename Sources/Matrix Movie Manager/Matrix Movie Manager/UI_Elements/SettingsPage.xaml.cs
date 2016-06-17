@@ -34,7 +34,7 @@ namespace Matrix_Movie_Manager.UI_Elements
         // returns the aplication to the main screen
         private void Back_button_Click(object sender, RoutedEventArgs e)
         {
-            m_win.Main_Frame.Navigate(string.Empty);
+            m_win.Main_Frame.Navigate(new Welcome_Page());
         }
 
         private void Save_button_Click(object sender, RoutedEventArgs e)

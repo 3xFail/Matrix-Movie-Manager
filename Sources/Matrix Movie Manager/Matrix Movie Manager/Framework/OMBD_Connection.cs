@@ -9,6 +9,8 @@ using System.Xml;
 
 namespace Matrix_Movie_Manager.Framework
 {
+
+    //referance http://www.omdbapi.com/
     class OMBD_Connection
     {
         const string omdb_default = "http://www.omdbapi.com/?";

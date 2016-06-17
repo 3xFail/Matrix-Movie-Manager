@@ -16,31 +16,13 @@ using System.Windows.Shapes;
 namespace Matrix_Movie_Manager.UI_Elements
 {
     /// <summary>
-    /// Interaction logic for DoIHaveItPage.xaml
+    /// Interaction logic for Welcome_Page.xaml
     /// </summary>
-    public partial class DoIHaveItPage : Page
+    public partial class Welcome_Page : Page
     {
-        MainWindow m_win;
-        public DoIHaveItPage()
+        public Welcome_Page()
         {
             InitializeComponent();
         }
-
-        public DoIHaveItPage(MainWindow win)
-        {
-            InitializeComponent();
-            m_win = win;
-        }
-
-        private void Do_I_Have_it_button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Back_button_Click(object sender, RoutedEventArgs e)
-        {
-            m_win.Main_Frame.Navigate(new Welcome_Page());
-        }
-
     }
 }

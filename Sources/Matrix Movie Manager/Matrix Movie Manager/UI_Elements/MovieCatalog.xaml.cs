@@ -44,7 +44,7 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
-            m_win.Main_Frame.Navigate(string.Empty);
+            m_win.Main_Frame.Navigate(new Welcome_Page());
         }
 
         

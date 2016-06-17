@@ -25,6 +25,7 @@ namespace Matrix_Movie_Manager
         public MainWindow()
         {
             InitializeComponent();
+            Main_Frame.Navigate(new Welcome_Page());
         }
 
         private void My_Movies_Butt_Click(object sender, RoutedEventArgs e)

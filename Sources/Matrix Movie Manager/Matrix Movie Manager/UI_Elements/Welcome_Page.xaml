@@ -1,0 +1,18 @@
+﻿<Page x:Class="Matrix_Movie_Manager.UI_Elements.Welcome_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Matrix_Movie_Manager.UI_Elements"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="1600"
+      Title="Welcome_Page">
+
+    <Border BorderBrush="Black" BorderThickness="5">
+        <Grid Background="Crimson">
+            <Label x:Name="Welcome" Content=" Welcome to the Matrix!" FontSize="50" FontWeight="Bold"  HorizontalAlignment="Left" Height="120" Margin="500,60,0,0" VerticalAlignment="Top" Width="600"/>
+            <TextBlock x:Name="Text_block" Text="This is a movie management system created by Ryan Williams as his senior project at Oregon Institute of Technology" FontSize="35" TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Left" Height="130" Margin="150,230,0,0" VerticalAlignment="Top" Width="1300"/>
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="150,820,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="*Please use this software appropratly and support the movie industry by legally obtaining their content!*" FontSize="25" FontWeight="Bold" VerticalAlignment="Top" Height="60" Width="1300"/>
+        </Grid>
+    </Border>
+</Page>
