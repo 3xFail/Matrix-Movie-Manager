@@ -17,13 +17,13 @@ Database: MS SQL
 *hopefully these will stay up to date with the project but I am only human*
 
 <b> Main Page</b>
-![Alt text](Images/mainpage.png?raw=true "Main page")
+![Alt text](Images/mainpage.PNG?raw=true "Main page")
 <b> Catalog Page</b>
-![Alt text](Images/catalog.png?raw=true "Catalog page")
+![Alt text](Images/catalog.PNG?raw=true "Catalog page")
 <b> Do I have this? Page</b>
-![Alt text](Images/doihavethis.png?raw=true "Do I have this page")
+![Alt text](Images/doihavethis.PNG?raw=true "Do I have this page")
 <b> Settings Page</b>
-![Alt text](Images/settings.png?raw=true "Settings page")
+![Alt text](Images/settings.PNG?raw=true "Settings page")
 
 <b>Installation Instructions:</b>
 
