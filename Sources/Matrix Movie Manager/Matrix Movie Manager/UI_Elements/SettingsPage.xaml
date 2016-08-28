@@ -14,7 +14,7 @@
                 <Label x:Name="File_Types_Lable" Content="Searchable File Types" FontWeight="Bold"/>
                 <CheckBox x:Name="MKV_Check" Content="MKV"  Height="30" />
                 <CheckBox x:Name="AVI_Check" Content="AVI"  Height="30" />
-                <CheckBox x:Name="MP4_Check" Content="MKV"  Height="30" />
+                <CheckBox x:Name="MP4_Check" Content="MP4"  Height="30" />
             </StackPanel>
             <ListView x:Name="listView" HorizontalAlignment="Left" Height="210" Margin="55,155,0,0" VerticalAlignment="Top" Width="1570">
                 <ListView.View>
