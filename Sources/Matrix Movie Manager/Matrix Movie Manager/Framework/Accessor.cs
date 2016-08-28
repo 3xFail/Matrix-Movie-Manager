@@ -37,7 +37,7 @@ namespace Matrix_Movie_Manager.Framework
                     {
                         if (Path.GetFileName(file).Contains(type))
                         {
-                            all_filenames.Add(Path.GetFileName(file));
+                            all_filenames.Add(Path.GetFileNameWithoutExtension(file));
                             break;
                         }
                     }
@@ -66,7 +66,7 @@ namespace Matrix_Movie_Manager.Framework
                         {
                             if (Path.GetFileName(file).Contains(type))
                             {
-                                all_filenames.Add(Path.GetFileName(file));
+                                all_filenames.Add(Path.GetFileNameWithoutExtension(file));
                                 break;
                             }
                         }
