@@ -8,6 +8,8 @@
         Title="Matrix Movie Manager"
         WindowState="Maximized" WindowStyle="SingleBorderWindow"  Height="1080" Width="1920">
 
+    
+
     <Border BorderBrush="Black" BorderThickness="5">
         <Grid Background="Maroon">
             <Frame x:Name="Main_Frame" HorizontalAlignment="Left" Height="980" Margin="230,10,0,0" VerticalAlignment="Top" Width="1662" NavigationUIVisibility="Hidden"/>

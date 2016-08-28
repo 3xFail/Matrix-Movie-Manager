@@ -12,12 +12,12 @@ namespace Matrix_Movie_Manager.Framework
 {
 
     //referance http://www.omdbapi.com/
-    class OMBD_Connection
+    public class OMBD_Connection
     {
         const string omdb_default = "http://www.omdbapi.com/?";
         public string omdb_poster_key;
         public Movie n_movie = new Movie();
-        public List<Movie> movie_list = new List<Movie>();
+        
 
         public Movie GetMovie(string query, string apiKey = "")
         {

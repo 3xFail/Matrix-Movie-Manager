@@ -57,7 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Framework\Accessor.cs" />
+    <Compile Include="Framework\Manager.cs" />
     <Compile Include="Framework\Movie.cs" />
+    <Compile Include="Framework\MovieList.cs" />
     <Compile Include="Framework\OMBD_Connection.cs" />
     <Compile Include="UI_Elements\DoIHaveItPage.xaml.cs">
       <DependentUpon>DoIHaveItPage.xaml</DependentUpon>

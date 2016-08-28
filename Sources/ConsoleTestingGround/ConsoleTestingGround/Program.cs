@@ -173,33 +173,7 @@ namespace ConsoleTestingGround
                 return null;
             }
         }
-        public async Task<List<Movie>> GetMovieList(string query, string apiKey = "")
-        {
-            using (var client = new HttpClient())
-            {
-                string response_s;
-                XmlDataDocument xml = new XmlDataDocument();
-                client.BaseAddress = new Uri(omdb_default);
-                client.DefaultRequestHeaders.Accept.Clear();
-                //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = await client.GetAsync(omdb_default + "s=" + query + "&r=xml");
-                if (response.IsSuccessStatusCode)
-                {
-                    response_s = await response.Content.ReadAsStringAsync();
-
-                    xml.Load(response_s);
-
-                    //need to create the movies based on every node in the xml and add them to the new movie list
-
-                    return movie_list;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-        }
+       
     }
 
 
