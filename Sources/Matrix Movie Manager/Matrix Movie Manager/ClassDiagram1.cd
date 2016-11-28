@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Matrix_Movie_Manager.MainWindow" BaseTypeListCollapsed="true">
-    <Position X="11.25" Y="1.25" Width="1.5" />
+    <Position X="2.75" Y="6.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAgA=</HashCode>
       <FileName>MainWindow.xaml.cs</FileName>
@@ -9,42 +9,42 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Matrix_Movie_Manager.Framework.Accessor">
-    <Position X="2.75" Y="4" Width="2.25" />
+    <Position X="2.75" Y="2.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\Accessor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Matrix_Movie_Manager.Framework.Manager">
-    <Position X="2.25" Y="1" Width="2.25" />
+    <Position X="2.75" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>EAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\Manager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Matrix_Movie_Manager.Framework.Movie">
-    <Position X="5.75" Y="6" Width="1.75" />
+    <Position X="5.75" Y="4.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAABAACAAAgEQQCAIAAAAAAAIQEAEAAQAEAAEAIAA=</HashCode>
       <FileName>Framework\Movie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Matrix_Movie_Manager.Framework.MovieList">
-    <Position X="5.25" Y="4" Width="2.25" />
+    <Position X="5.25" Y="2.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\MovieList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Matrix_Movie_Manager.Framework.OMBD_Connection">
-    <Position X="0.5" Y="4" Width="2" />
+    <Position X="0.5" Y="2.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAACAAAAQACAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Framework\OMBD_Connection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Matrix_Movie_Manager.UI_Elements.DoIHaveItPage" BaseTypeListCollapsed="true">
-    <Position X="8.75" Y="4" Width="1.5" />
+    <Position X="0.5" Y="11.75" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAEAAAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>UI_Elements\DoIHaveItPage.xaml.cs</FileName>
@@ -52,7 +52,7 @@
     <Lollipop Position="0.69" Collapsed="true" />
   </Class>
   <Class Name="Matrix_Movie_Manager.UI_Elements.MovieCatalog" BaseTypeListCollapsed="true">
-    <Position X="14" Y="4" Width="1.5" />
+    <Position X="4.75" Y="9.25" Width="3" />
     <TypeIdentifier>
       <HashCode>ACAAAGAAAAgAABAAAAAAIAAIAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UI_Elements\MovieCatalog.xaml.cs</FileName>
@@ -60,7 +60,7 @@
     <Lollipop Position="0.773" Collapsed="true" />
   </Class>
   <Class Name="Matrix_Movie_Manager.UI_Elements.SettingsPage" BaseTypeListCollapsed="true">
-    <Position X="10.5" Y="4" Width="1.5" />
+    <Position X="0.5" Y="9" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAwAAAAAAAAAAAAAAAAAABAAgAgAAAAAAAA=</HashCode>
       <FileName>UI_Elements\SettingsPage.xaml.cs</FileName>
@@ -68,7 +68,7 @@
     <Lollipop Position="0.815" Collapsed="true" />
   </Class>
   <Class Name="Matrix_Movie_Manager.UI_Elements.Welcome_Page" BaseTypeListCollapsed="true">
-    <Position X="12.25" Y="4" Width="1.5" />
+    <Position X="1" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UI_Elements\Welcome_Page.xaml.cs</FileName>

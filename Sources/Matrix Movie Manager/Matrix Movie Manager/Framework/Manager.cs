@@ -15,7 +15,7 @@ namespace Matrix_Movie_Manager.Framework
             //path or paths
             //file types
 
-            //m_accessor = new Accessor(settings.paths, settings.file_types);
+            m_accessor = new Accessor(settings.paths, settings.file_types);
             m_con = new OMBD_Connection();
 
             foreach (string file in m_accessor.Get_All_Files())

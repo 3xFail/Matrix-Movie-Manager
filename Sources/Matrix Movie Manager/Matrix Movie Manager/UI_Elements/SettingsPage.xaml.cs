@@ -29,6 +29,7 @@ namespace Matrix_Movie_Manager.UI_Elements
         public SettingsPage(MainWindow win)
         {
             InitializeComponent();
+            //contains the setting files
             m_win = win;
         }
         // returns the aplication to the main screen
@@ -39,7 +40,9 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
-            // maybe make a config file of sorts that would handle the assignments and changes being saved and made
+            //store everything that was added into the settings lists in m_win then write it to the file in m_win in xml
+
+            //need a xml writer
         }
 
         //adds a path location to the possible seached paths
