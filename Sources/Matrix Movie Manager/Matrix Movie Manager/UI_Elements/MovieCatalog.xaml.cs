@@ -59,7 +59,7 @@ namespace Matrix_Movie_Manager.UI_Elements
             //should have access to full list of movies at start
             //accessable through the movie list 
 
-            foreach (Movie movie in Manager.m_movie_list.m_movies)
+            foreach (Movie movie in Manager.m_movie_list)
             {
                 this.movie_posters_list.Add(new BitmapImage(new Uri(movie.Poster)));
                 this.movie_names.Add(movie.Title);

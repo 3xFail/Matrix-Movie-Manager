@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,7 +60,6 @@
     <Compile Include="Framework\Accessor.cs" />
     <Compile Include="Framework\Manager.cs" />
     <Compile Include="Framework\Movie.cs" />
-    <Compile Include="Framework\MovieList.cs" />
     <Compile Include="Framework\OMBD_Connection.cs" />
     <Compile Include="UI_Elements\DoIHaveItPage.xaml.cs">
       <DependentUpon>DoIHaveItPage.xaml</DependentUpon>

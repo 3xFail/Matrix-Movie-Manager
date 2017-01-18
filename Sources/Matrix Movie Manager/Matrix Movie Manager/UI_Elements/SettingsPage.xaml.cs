@@ -7,11 +7,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
 
 namespace Matrix_Movie_Manager.UI_Elements
 {
@@ -51,9 +53,24 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         }
         //opens a browse panel that allows a file to be selected to be used as a search path
-        private void Browse_button_Click(object sender, RoutedEventArgs e)
+        private void Browse_button_Click( object sender, RoutedEventArgs e )
         {
+            var dlg = new FolderBrowserDialog();
+            string path = null;
 
+            dlg.ShowNewFolderButton = true;
+            DialogResult result = dlg.ShowDialog();
+            if( result == System.Windows.Forms.DialogResult.OK )
+            {
+                path = dlg.SelectedPath;
+                m_win.m_settings.paths.Add( path );
+                //refresh listView
+                listView.Items.Clear();
+                foreach( string s in m_win.m_settings.paths )
+                {
+                    listView.Items.Add( s );        
+                }
+            }
         }
     }
 }
