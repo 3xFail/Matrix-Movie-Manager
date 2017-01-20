@@ -41,16 +41,18 @@ namespace Matrix_Movie_Manager
 
                     //need a xml reader
 
-                    //m_settings.paths =;
-                    //m_settings.types =;
+                    m_settings.paths = null;
+                    m_settings.types = null;
                 }
                 else
                 {
                     //settings file was empty
-                    
+                    //this is a freash startup
+                    m_settings.paths = null;
+                    m_settings.types = null;
                 }
             }
-            //m_manager = new Manager(m_settings);
+            m_manager = new Manager(m_settings);
 
         }
 
@@ -81,7 +83,7 @@ namespace Matrix_Movie_Manager
 
         private string settings_file_path = "..\\Data_Files\\settings.xml";
         public Settings m_settings;
-        //public static Manager m_manager;
+        public static Manager m_manager;
 
     }
     public struct Settings

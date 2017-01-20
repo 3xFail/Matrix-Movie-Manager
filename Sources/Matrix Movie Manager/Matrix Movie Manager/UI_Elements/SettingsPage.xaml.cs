@@ -23,6 +23,7 @@ namespace Matrix_Movie_Manager.UI_Elements
     public partial class SettingsPage : Page
     {
         public MainWindow m_win;
+        private List<string> unsaved_paths;
         public SettingsPage()
         {
             InitializeComponent();
@@ -43,15 +44,16 @@ namespace Matrix_Movie_Manager.UI_Elements
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
             //store everything that was added into the settings lists in m_win then write it to the file in m_win in xml
-
+            if(unsaved_paths.Count > 0)
+            {
+                foreach(string s in unsaved_paths)
+                {
+                    m_win.m_settings.paths.Add( s );
+                }
+            }
             //need a xml writer
         }
 
-        //adds a path location to the possible seached paths
-        private void Add_button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         //opens a browse panel that allows a file to be selected to be used as a search path
         private void Browse_button_Click( object sender, RoutedEventArgs e )
         {
@@ -63,10 +65,10 @@ namespace Matrix_Movie_Manager.UI_Elements
             if( result == System.Windows.Forms.DialogResult.OK )
             {
                 path = dlg.SelectedPath;
-                m_win.m_settings.paths.Add( path );
+                unsaved_paths.Add( path );
                 //refresh listView
                 listView.Items.Clear();
-                foreach( string s in m_win.m_settings.paths )
+                foreach( string s in unsaved_paths )
                 {
                     listView.Items.Add( s );        
                 }

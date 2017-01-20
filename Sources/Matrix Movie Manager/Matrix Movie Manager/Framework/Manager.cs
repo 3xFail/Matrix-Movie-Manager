@@ -10,19 +10,27 @@ namespace Matrix_Movie_Manager.Framework
     {
         public Manager(Settings settings )
         {
+            m_con = new OMBD_Connection();
             //need to make some sort of saved settings file/class that can passed in
             //file/class needs to include
             //path or paths
             //file types
-
-            m_accessor = new Accessor(settings.paths.ToArray(), settings.types.ToArray());
-            m_con = new OMBD_Connection();
-
-            foreach (string file in m_accessor.Get_All_Files())
+            if(settings.paths != null || settings.types != null )
             {
-                //fill movie list
-                m_movie_list.Add(new Movie(m_con.GetMovie(file)));
+                m_accessor = new Accessor( settings.paths.ToArray(), settings.types.ToArray() );
+                
+
+                foreach( string file in m_accessor.Get_All_Files() )
+                {
+                    //fill movie list
+                    m_movie_list.Add( new Movie( m_con.GetMovie( file ) ) );
+                }
             }
+            else
+            {
+
+            }
+            
         }
 
         public static List<Movie> m_movie_list { get;  set; }
