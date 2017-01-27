@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.IO;
+using System.Text;
 
 
 namespace Matrix_Movie_Manager
@@ -31,6 +34,7 @@ namespace Matrix_Movie_Manager
             m_settings = new Settings();
             m_settings.paths = new List<string>();
             m_settings.types = new List<string>();
+            StringBuilder output = new StringBuilder();
 
             if(File.Exists(settings_file_path))
             {
@@ -38,11 +42,33 @@ namespace Matrix_Movie_Manager
                 if(xml.Length > 0)
                 {
                     //parse as xml
+                    using( XmlReader reader = XmlReader.Create( new StringReader( xml ) ) )
+                    {
+                        reader.ReadToFollowing( "path" );
 
-                    //need a xml reader
+                        if( reader.MoveToFirstAttribute() != false )
+                        {
+                            m_settings.paths.Add( reader.Value );
 
-                    m_settings.paths = null;
-                    m_settings.types = null;
+                            while( reader.MoveToNextAttribute() != true )
+                            {
+                                m_settings.paths.Add( reader.Value );
+                            }
+                        }
+                        reader.ReadToFollowing( "filetypes" );
+
+
+                        if( reader.MoveToFirstAttribute() != false )
+                        {
+                            m_settings.types.Add( reader.Value );
+
+                            while( reader.MoveToNextAttribute() != true )
+                            {
+                                m_settings.types.Add( reader.Value );
+                            }
+                        }
+
+                    }
                 }
                 else
                 {
