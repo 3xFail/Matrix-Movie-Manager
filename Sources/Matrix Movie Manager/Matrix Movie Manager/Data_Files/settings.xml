@@ -1,1 +1,12 @@
-﻿
+<root xmlns="urn:1">
+  <paths>
+    <path d3p1:loc="C:\Users\Ryan\Desktop\Ds emulator" xmlns:d3p1="urn:1" />
+    <path d3p1:loc="C:\Users\Ryan\Desktop\Phone stuff" xmlns:d3p1="urn:1" />
+    <path d3p1:loc="C:\Users\Ryan\Desktop\sheet" xmlns:d3p1="urn:1" />
+  </paths>
+  <filetypes>
+    <filetype d3p1:name="MKV" d3p1:value="False" xmlns:d3p1="urn:1" />
+    <filetype d3p1:name="AVI" d3p1:value="True" xmlns:d3p1="urn:1" />
+    <filetype d3p1:name="MP4" d3p1:value="False" xmlns:d3p1="urn:1" />
+  </filetypes>
+</root>

@@ -15,9 +15,9 @@ namespace Matrix_Movie_Manager.Framework
             //file/class needs to include
             //path or paths
             //file types
-            if(settings.paths != null || settings.types != null )
+            if(settings.paths != null || settings.typenames != null )
             {
-                m_accessor = new Accessor( settings.paths.ToArray(), settings.types.ToArray() );
+                m_accessor = new Accessor( settings.paths.ToArray(), settings.typenames.ToArray() );
                 
 
                 foreach( string file in m_accessor.Get_All_Files() )

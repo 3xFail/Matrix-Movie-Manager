@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Xml;
 
 namespace Matrix_Movie_Manager.UI_Elements
 {
@@ -23,10 +23,13 @@ namespace Matrix_Movie_Manager.UI_Elements
     public partial class SettingsPage : Page
     {
         public MainWindow m_win;
-        private List<string> unsaved_paths;
+        private List<string> unsaved_paths = new List<string>();
         public SettingsPage()
         {
             InitializeComponent();
+
+            
+           
         }
         //ctor that takes a main window object to reference the main frame that is used throughout the program
         public SettingsPage(MainWindow win)
@@ -34,6 +37,23 @@ namespace Matrix_Movie_Manager.UI_Elements
             InitializeComponent();
             //contains the setting files
             m_win = win;
+
+            listView.Items.Clear();
+            if (m_win.m_settings.paths != null)
+            {
+                foreach (string s in m_win.m_settings.paths)
+                {
+                    listView.Items.Add(s);
+                    unsaved_paths.Add(s);
+                }
+            }
+
+            if (m_win.m_settings.typenames != null)
+            {
+                MKV_Check.IsChecked = m_win.m_settings.use_type[0];
+                AVI_Check.IsChecked = m_win.m_settings.use_type[1];
+                MP4_Check.IsChecked = m_win.m_settings.use_type[2];
+            }
         }
         // returns the aplication to the main screen
         private void Back_button_Click(object sender, RoutedEventArgs e)
@@ -43,40 +63,70 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
+            int path_count = 0;
+
             //store everything that was added into the settings lists in m_win then write it to the file in m_win in xml
-            if(unsaved_paths.Count > 0)
+            XmlTextWriter w = new XmlTextWriter(m_win.settings_file_path, null);
+            w.Formatting = Formatting.Indented;
+            w.WriteStartElement("root", "urn:1");
+
+
+            //need to change this to account for removing a path
+            if (unsaved_paths.Count > 0)
             {
-                foreach(string s in unsaved_paths)
+                w.WriteStartElement("paths");
+
+                foreach (string s in unsaved_paths)
                 {
-                    m_win.m_settings.paths.Add( s );
+                    m_win.m_settings.paths.Add(s);
+                    w.WriteStartElement("path", "urn:1");
+                    w.WriteAttributeString("loc", "urn:1", s);
+                    w.WriteEndElement(); //path
                 }
+                w.WriteEndElement(); //paths
             }
-            //need a xml writer
+            w.WriteStartElement("filetypes");
 
 
+            w.WriteStartElement("filetype", "urn:1");
+            w.WriteAttributeString("name", "urn:1", MKV_Check.Content.ToString());
+            w.WriteAttributeString("value", "urn:1", MKV_Check.IsChecked.ToString());
+            w.WriteEndElement(); //filetype
+
+            w.WriteStartElement("filetype", "urn:1");
+            w.WriteAttributeString("name", "urn:1", AVI_Check.Content.ToString());
+            w.WriteAttributeString("value", "urn:1", AVI_Check.IsChecked.ToString());
+            w.WriteEndElement(); //filetype
+
+            w.WriteStartElement("filetype", "urn:1");
+            w.WriteAttributeString("name", "urn:1", MP4_Check.Content.ToString());
+            w.WriteAttributeString("value", "urn:1", MP4_Check.IsChecked.ToString());
+            w.WriteEndElement(); //filetype
 
 
-
+            w.WriteEndElement(); //filetypes
+            w.WriteEndElement(); //root 
+            w.Close();
 
         }
 
         //opens a browse panel that allows a file to be selected to be used as a search path
-        private void Browse_button_Click( object sender, RoutedEventArgs e )
+        private void Browse_button_Click(object sender, RoutedEventArgs e)
         {
             var dlg = new FolderBrowserDialog();
-            string path = null;
+            string path;
 
             dlg.ShowNewFolderButton = true;
             DialogResult result = dlg.ShowDialog();
-            if( result == System.Windows.Forms.DialogResult.OK )
+            if (result == System.Windows.Forms.DialogResult.OK)
             {
-                path = dlg.SelectedPath;
-                unsaved_paths.Add( path );
+                path = dlg.SelectedPath.ToString();
+                unsaved_paths.Add(path.ToString());
                 //refresh listView
                 listView.Items.Clear();
-                foreach( string s in unsaved_paths )
+                foreach (string s in unsaved_paths)
                 {
-                    listView.Items.Add( s );        
+                    listView.Items.Add(s);
                 }
             }
         }
