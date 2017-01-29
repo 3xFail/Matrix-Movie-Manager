@@ -1,4 +1,5 @@
-﻿using Matrix_Movie_Manager.UI_Elements;
+﻿using Matrix_Movie_Manager.Framework;
+using Matrix_Movie_Manager.UI_Elements;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml;
+using System.IO;
+using System.Text;
 
 
 namespace Matrix_Movie_Manager
@@ -27,6 +31,10 @@ namespace Matrix_Movie_Manager
         {
             InitializeComponent();
             Main_Frame.Navigate(new Welcome_Page());
+            m_settings = new Settings();
+            m_settings.paths = new List<string>();
+            m_settings.types = new List<string>();
+            StringBuilder output = new StringBuilder();
 
             if(File.Exists(settings_file_path))
             {
@@ -34,17 +42,43 @@ namespace Matrix_Movie_Manager
                 if(xml.Length > 0)
                 {
                     //parse as xml
+                    using( XmlReader reader = XmlReader.Create( new StringReader( xml ) ) )
+                    {
+                        reader.ReadToFollowing( "path" );
 
-                    //need a xml reader
+                        if( reader.MoveToFirstAttribute() != false )
+                        {
+                            m_settings.paths.Add( reader.Value );
 
+                            while( reader.MoveToNextAttribute() != true )
+                            {
+                                m_settings.paths.Add( reader.Value );
+                            }
+                        }
+                        reader.ReadToFollowing( "filetypes" );
+
+
+                        if( reader.MoveToFirstAttribute() != false )
+                        {
+                            m_settings.types.Add( reader.Value );
+
+                            while( reader.MoveToNextAttribute() != true )
+                            {
+                                m_settings.types.Add( reader.Value );
+                            }
+                        }
+
+                    }
                 }
                 else
                 {
                     //settings file was empty
-                    m_file_paths = new List<string>();
-                    m_file_types = new List<string>();
+                    //this is a freash startup
+                    m_settings.paths = null;
+                    m_settings.types = null;
                 }
             }
+            m_manager = new Manager(m_settings);
 
         }
 
@@ -74,9 +108,13 @@ namespace Matrix_Movie_Manager
         }
 
         private string settings_file_path = "..\\Data_Files\\settings.xml";
+        public Settings m_settings;
+        public static Manager m_manager;
 
-        private List<string> m_file_paths { get; }
-
-        private List<string> m_file_types { get; }
     }
+    public struct Settings
+    {
+        public List<string> paths { get; set; }
+        public List<string> types { get; set; }
+    };
 }

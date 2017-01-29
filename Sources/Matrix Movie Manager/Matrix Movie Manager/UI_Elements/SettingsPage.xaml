@@ -19,7 +19,7 @@
             <ListView x:Name="listView" HorizontalAlignment="Left" Height="210" Margin="55,155,0,0" VerticalAlignment="Top" Width="1570">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn/>
+                        <GridViewColumn Width="1570"/>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -28,8 +28,7 @@
             <Grid HorizontalAlignment="Left" Height="120" Margin="55,30,0,0" VerticalAlignment="Top" Width="1375" Background="Gray">
                 <Label x:Name="Path_Location_label" Content="Path Location:" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="55" Margin="10,30,0,0" VerticalAlignment="Top" Width="145"/>
                 <TextBox x:Name="Input_Text" HorizontalAlignment="Left" Height="55" Margin="155,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1070"/>
-                <Button x:Name="Add_button" Content="Add" HorizontalAlignment="Left" Height="55" Margin="1305,30,0,0" VerticalAlignment="Top" Width="60" Click="Add_button_Click"/>
-                <Button x:Name="Browse_button" Content="Browse" HorizontalAlignment="Left" Height="55" Margin="1240,30,0,0" VerticalAlignment="Top" Width="60" Click="Browse_button_Click" />
+                <Button x:Name="Browse_button" Content="Browse" HorizontalAlignment="Left" Height="55" Margin="1230,30,0,0" VerticalAlignment="Top" Width="135" Click="Browse_button_Click" />
 
             </Grid>
         </Grid>
