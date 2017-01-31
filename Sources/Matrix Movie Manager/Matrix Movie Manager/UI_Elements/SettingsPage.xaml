@@ -19,7 +19,9 @@
             <ListView x:Name="listView" HorizontalAlignment="Left" Height="210" Margin="55,155,0,0" VerticalAlignment="Top" Width="1570">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Width="1570"/>
+                        <GridViewColumn Width="1256">
+                            <Label Name="List_Box_Label" Content="Paths" HorizontalAlignment="Left"/>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
@@ -31,6 +33,7 @@
                 <Button x:Name="Browse_button" Content="Browse" HorizontalAlignment="Left" Height="55" Margin="1230,30,0,0" VerticalAlignment="Top" Width="135" Click="Browse_button_Click" />
 
             </Grid>
+            
         </Grid>
     </Border>
 </Page>

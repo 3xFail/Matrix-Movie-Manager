@@ -63,7 +63,6 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Save_button_Click(object sender, RoutedEventArgs e)
         {
-            int path_count = 0;
 
             //store everything that was added into the settings lists in m_win then write it to the file in m_win in xml
             XmlTextWriter w = new XmlTextWriter(m_win.settings_file_path, null);
@@ -130,5 +129,7 @@ namespace Matrix_Movie_Manager.UI_Elements
                 }
             }
         }
+
+        
     }
 }
