@@ -12,6 +12,9 @@ namespace Matrix_Movie_Manager.Framework
         public Manager(Settings settings )
         {
             m_con = new OMBD_Connection();
+            m_movie_list = new List<Movie>();
+            int loc;
+            int count = 0;
             //need to make some sort of saved settings file/class that can passed in
             //file/class needs to include
             //path or paths
@@ -25,16 +28,16 @@ namespace Matrix_Movie_Manager.Framework
                 {
                     //fill movie list
                     m_movie_list.Add( new Movie( m_con.GetMovie( file ) ) );
+                    loc = m_accessor.Get_All_Files().IndexOf(file);
+                    m_movie_list[count].Path = m_accessor.Get_All_Paths()[loc];
+                    count++;
                 }
             }
-            else
-            {
-
-            }
+            
             
         }
 
-        public static List<Movie> m_movie_list { get;  set; }
+        public List<Movie> m_movie_list { get;  set; }
         public static OMBD_Connection m_con { get; set; }
         public static Accessor m_accessor { get; set; }
 

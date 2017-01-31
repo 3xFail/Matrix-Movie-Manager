@@ -19,6 +19,7 @@ namespace Matrix_Movie_Manager.Framework
             foreach (string file in temp)
             {
                 all_filenames.Add(Path.GetFileName(file));
+                all_paths.Add(file);
             }
         }
 
@@ -38,6 +39,7 @@ namespace Matrix_Movie_Manager.Framework
                         if (Path.GetFileName(file).Contains(type))
                         {
                             all_filenames.Add(Path.GetFileNameWithoutExtension(file));
+                            all_paths.Add(file);
                             break;
                         }
                     }
@@ -64,9 +66,10 @@ namespace Matrix_Movie_Manager.Framework
                     {
                         foreach (string type in file_types)
                         {
-                            if (Path.GetFileName(file).Contains(type))
+                            if (Path.GetFileName(file).Contains(type.ToLower()))
                             {
                                 all_filenames.Add(Path.GetFileNameWithoutExtension(file));
+                                all_paths.Add(file);
                                 break;
                             }
                         }
@@ -83,7 +86,13 @@ namespace Matrix_Movie_Manager.Framework
             return all_filenames;
         }
 
-        public List<string> all_filenames = new List<string>();
+        public List<string> Get_All_Paths()
+        {
+            return all_paths;
+        }
+
+        private List<string> all_filenames = new List<string>();
+        private List<string> all_paths = new List<string>();
 
     }
 }

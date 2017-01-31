@@ -1,6 +1,8 @@
 ﻿using Matrix_Movie_Manager.Framework;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,20 @@ namespace Matrix_Movie_Manager.UI_Elements
         {
             InitializeComponent();
             m_win = win;
+            LoadImages();
+
+            //if (m_win.m_manager.m_movie_list.Count >= 1)
+            //{
+                
+            //    Movie_List.Items.Clear();
+            //    foreach(var image in movie_posters_list)
+            //    {
+            //        Movie_List.Items.Add(image);
+            //    }
+                
+                
+            //}
+
         }
 
         private void Search_Button_Click(object sender, RoutedEventArgs e)
@@ -49,9 +65,9 @@ namespace Matrix_Movie_Manager.UI_Elements
         }
 
 
-        List<ImageSource> movie_posters_list = new List<ImageSource>();
+        ObservableCollection<ImageSource> movie_posters_list = new ObservableCollection<ImageSource>();
         List<String> movie_names = new List<String>();
-        
+
 
 
         public void LoadImages()
@@ -59,14 +75,54 @@ namespace Matrix_Movie_Manager.UI_Elements
             //should have access to full list of movies at start
             //accessable through the movie list 
 
-            foreach (Movie movie in Manager.m_movie_list)
+            foreach (Movie movie in m_win.m_manager.m_movie_list)
             {
-                this.movie_posters_list.Add(new BitmapImage(new Uri(movie.Poster)));
+                this.movie_posters_list.Add(movie.Poster);
                 this.movie_names.Add(movie.Title);
             }
 
-            Movie_List.ItemsSource = movie_posters_list;
+            //Movie_List.ItemsSource = movie_posters_list;
+
+            Movie_List.ItemsSource = m_win.m_manager.m_movie_list;
         }
 
+        private void Image_Click(object sender, RoutedEventArgs e)
+        {
+            
+            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
+            {
+                Movie movie = m_win.m_manager.m_movie_list.Single(m => m == ((Button)sender).DataContext);
+                sb_title_content_label.Content = movie.Title;
+                sb_release_date_content_label.Content = movie.Released;
+                sb_runtime_content_label.Content = movie.Runtime;
+                sb_genre_content_label.Content = movie.Genre;
+                sb_plot_content_label.Text = movie.Plot;
+                Sidebar.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+            }
+        }
+
+        private void Watch_Button_Click(object sender, RoutedEventArgs e)
+        {
+            string vlcpath = Environment.GetEnvironmentVariable("vlc");
+
+            if (vlcpath != null)
+            {
+                Movie movie = m_win.m_manager.m_movie_list.Single(m => m.Title == sb_title_content_label.Content.ToString());
+
+
+                System.Diagnostics.Process VLC = new System.Diagnostics.Process();
+                VLC.StartInfo.FileName = vlcpath;
+                //need to get the path of the movie
+                VLC.StartInfo.Arguments = "-vvv " + movie.Path;
+                VLC.Start();
+            }
+            else
+                MessageBox.Show("Could Not Find VLC's Path on this system. Make sure that it is installed");
+            
+        }
     }
 }

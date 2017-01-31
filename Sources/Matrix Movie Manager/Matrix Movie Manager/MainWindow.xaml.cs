@@ -36,7 +36,7 @@ namespace Matrix_Movie_Manager
             m_settings.typenames = new List<string>();
             m_settings.use_type = new List<bool>();
             StringBuilder output = new StringBuilder();
-            string temp;
+            
 
             settings_file_path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + settings_file;
 
@@ -76,50 +76,12 @@ namespace Matrix_Movie_Manager
                             
                         }
 
-
-
-                        //reader.ReadToFollowing( "paths" );
-
-                        //if( reader.MoveToElement() != false )
-                        //{
-                        //    m_settings.paths.Add( reader.Value );
-
-                        //    while( reader.MoveToNextAttribute() != true )
-                        //    {
-                        //        m_settings.paths.Add( reader.Value );
-                        //    }
-                        //}
-                        //reader.ReadToFollowing( "filetype" );
-
-                        ////always in order of MKV, AVI, MP4
-                        //if( reader.MoveToFirstAttribute() != false )
-                        //{
-                        //    m_settings.typenames.Add(reader.Name.ToString());
-
-                        //    if (reader.Value.Trim().ToUpper() == "TRUE")
-                        //        m_settings.use_type.Add(true);
-                        //    else
-                        //        m_settings.use_type.Add(false);
-                        //    //m_settings.types.Add(reader.Value);
-
-                        //    while( reader.MoveToNextAttribute() != true )
-                        //    {
-                        //        if (reader.Value.Trim().ToUpper() == "TRUE")
-                        //            m_settings.use_type.Add(true);
-                        //        else
-                        //            m_settings.use_type.Add(false);
-                        //    }
-                        //}
-
                     }
                 }
                 else
                 {
                     //settings file was empty
                     //this is a freash startup
-                    //m_settings.paths = null;
-                    //m_settings.typenames = null;
-                    //m_settings.use_type = null;
                 }
             }
             m_manager = new Manager(m_settings);
@@ -154,7 +116,7 @@ namespace Matrix_Movie_Manager
         public string settings_file_path;
         private string settings_file = "\\Data_Files\\settings.xml";
         public Settings m_settings;
-        public static Manager m_manager;
+        public Manager m_manager;
 
     }
     public struct Settings

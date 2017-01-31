@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Web;
+using System.Windows.Media.Imaging;
 
 namespace Matrix_Movie_Manager.Framework
 {
@@ -42,7 +43,7 @@ namespace Matrix_Movie_Manager.Framework
                 n_movie.Runtime = root.Attributes["runtime"].Value.ToString();
                 n_movie.Plot = root.Attributes["plot"].Value.ToString();
                 n_movie.Awards = root.Attributes["awards"].Value.ToString();
-                n_movie.Poster = root.Attributes["poster"].Value.ToString();
+                n_movie.Poster = new BitmapImage(new Uri(root.Attributes["poster"].Value.ToString()));
                 n_movie.Metascore = root.Attributes["metascore"].Value.ToString();
                 n_movie.imdbRating = root.Attributes["imdbRating"].Value.ToString();
                 n_movie.Type = root.Attributes["type"].Value.ToString();

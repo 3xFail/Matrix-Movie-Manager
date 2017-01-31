@@ -11,8 +11,10 @@
     <Page.Resources>
         <DataTemplate x:Key="ItemTemplate">
             <WrapPanel>
-                <Image Width="200" Height="300" Stretch="Fill" Source="{Binding}"/>
-                <TextBlock Text="{Binding}"/>
+                <Button Click="Image_Click" DataContext="{Binding}">
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="225" Height="300" Stretch="Fill" Source="{Binding Poster}"/>
+                </Button>
+                <!--<TextBlock Text="{Binding}"/>-->
             </WrapPanel>
         </DataTemplate>
     </Page.Resources>
@@ -28,25 +30,36 @@
                 <Button x:Name="Close_Button" Content="Close" Height="100" Click="Close_Button_Click" />
             </StackPanel>
 
-            
+
 
 
 
             <Grid x:Name="movie_grid" HorizontalAlignment="Left" Height="855" Margin="155,90,0,0" VerticalAlignment="Top" Width="1243">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <ListView Grid.Row="1" Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Path = movie_posters_list}">
+
+                <ListView ScrollViewer.CanContentScroll="True" 
+          ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Path = m_movie_list}" Background="Black">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Columns="5" />
+                            <UniformGrid Columns="5"/>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                 </ListView>
-                <TextBlock Name="SampleTextBlock" Text="{Binding Path=movie_names}" DataContext="{StaticResource ItemTemplate}" />
-
             </Grid>
 
+            <Grid Name="Sidebar" Visibility="Collapsed">
+                <Rectangle Name="rect"  Fill="#FFF4F4F5"  HorizontalAlignment="Left" Height="855" Margin="1403,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="267"/>
+                <Label x:Name="sb_title_label" Content="Title:" HorizontalAlignment="Left" Height="45" Margin="1415,105,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label x:Name="sb_title_content_label" Content="" HorizontalAlignment="Left" Height="45" Margin="1475,105,0,0" VerticalAlignment="Top" Width="185"/>
+                <Label x:Name="sb_release_date_label" Content="Release Date:" HorizontalAlignment="Left" Height="45" Margin="1415,160,0,0" VerticalAlignment="Top" Width="89"/>
+                <Label x:Name="sb_release_date_content_label" Content="" HorizontalAlignment="Left" Height="40" Margin="1504,155,0,0" VerticalAlignment="Top" Width="156"/>
+                <Label x:Name="sb_runtime_label" Content="Runtime:" HorizontalAlignment="Left" Height="40" Margin="1415,210,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label x:Name="sb_runtime_content_label" Content="" HorizontalAlignment="Left" Height="35" Margin="1495,210,0,0" VerticalAlignment="Top" Width="165"/>
+                <Label x:Name="sb_genre_label" Content="Genres:" HorizontalAlignment="Left" Height="35" Margin="1415,255,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label x:Name="sb_genre_content_label" Content="" HorizontalAlignment="Left" Height="35" Margin="1495,255,0,0" VerticalAlignment="Top" Width="165"/>
+                <Label x:Name="sb_plot_label" Content="Plot:" HorizontalAlignment="Left" Height="35" Margin="1415,295,0,0" VerticalAlignment="Top" Width="245"/>
+                <TextBlock x:Name="sb_plot_content_label" Text="" TextWrapping="WrapWithOverflow"  HorizontalAlignment="Left" Height="300" Margin="1415,335,0,0" VerticalAlignment="Top" Width="245"/>
+                <Button x:Name="Watch_Button" Content="Watch it now" HorizontalAlignment="Left" Height="40" Margin="1415,895,0,0" VerticalAlignment="Top" Width="245" Click="Watch_Button_Click"/>
+            </Grid>
 
 
         </Grid>

@@ -48,7 +48,7 @@ namespace Matrix_Movie_Manager.UI_Elements
                 }
             }
 
-            if (m_win.m_settings.typenames != null)
+            if (m_win.m_settings.typenames.Count >= 1)
             {
                 MKV_Check.IsChecked = m_win.m_settings.use_type[0];
                 AVI_Check.IsChecked = m_win.m_settings.use_type[1];
