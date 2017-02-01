@@ -23,7 +23,12 @@
         <Grid Background="Gray">
 
             <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="1243" FontSize="30"/>
-            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106"/>
+            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106">
+                <ComboBoxItem>Title</ComboBoxItem>
+                <ComboBoxItem>Actor</ComboBoxItem>
+                <ComboBoxItem>Genre</ComboBoxItem>
+                
+            </ComboBox>
             <Button x:Name="Search_Button" Content="Search" HorizontalAlignment="Left" Height="55" Margin="1504,10,0,0" VerticalAlignment="Top" Width="101" Click="Search_Button_Click" />
             <StackPanel HorizontalAlignment="Left" Height="200" Margin="10,745,0,0" VerticalAlignment="Top" Width="117">
                 <Button x:Name="Refresh_Button" Content="Refresh" Height="100" Click="Refresh_Button_Click" />
@@ -46,7 +51,7 @@
                 </ListView>
             </Grid>
 
-            <Grid Name="Sidebar" Visibility="Collapsed">
+            <Grid Name="Sidebar" Visibility="Visible">
                 <Rectangle Name="rect"  Fill="#FFF4F4F5"  HorizontalAlignment="Left" Height="855" Margin="1403,90,0,0" Stroke="Black" VerticalAlignment="Top" Width="267"/>
                 <Label x:Name="sb_title_label" Content="Title:" HorizontalAlignment="Left" Height="45" Margin="1415,105,0,0" VerticalAlignment="Top" Width="60"/>
                 <Label x:Name="sb_title_content_label" Content="" HorizontalAlignment="Left" Height="45" Margin="1475,105,0,0" VerticalAlignment="Top" Width="185"/>

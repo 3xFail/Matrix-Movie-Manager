@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -107,18 +108,20 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Watch_Button_Click(object sender, RoutedEventArgs e)
         {
-            string vlcpath = Environment.GetEnvironmentVariable("vlc");
+            string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
 
             if (vlcpath != null)
             {
                 Movie movie = m_win.m_manager.m_movie_list.Single(m => m.Title == sb_title_content_label.Content.ToString());
 
 
-                System.Diagnostics.Process VLC = new System.Diagnostics.Process();
-                VLC.StartInfo.FileName = vlcpath;
-                //need to get the path of the movie
-                VLC.StartInfo.Arguments = "-vvv " + movie.Path;
-                VLC.Start();
+                Process p = new Process();
+                p.StartInfo.FileName = vlcpath;
+                p.StartInfo.UseShellExecute = false;
+                p.StartInfo.Arguments = "\"" + movie.Path + "\"";
+                p.Start();
+
+                //p.WaitForExit();
             }
             else
                 MessageBox.Show("Could Not Find VLC's Path on this system. Make sure that it is installed");
