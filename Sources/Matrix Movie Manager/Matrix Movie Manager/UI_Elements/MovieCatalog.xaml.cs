@@ -53,6 +53,7 @@ namespace Matrix_Movie_Manager.UI_Elements
         private void Search_Button_Click(object sender, RoutedEventArgs e)
         {
             //this should filter the movie view grid
+            
         }
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)

@@ -15,10 +15,7 @@ namespace Matrix_Movie_Manager.Framework
             m_movie_list = new List<Movie>();
             int loc;
             int count = 0;
-            //need to make some sort of saved settings file/class that can passed in
-            //file/class needs to include
-            //path or paths
-            //file types
+            
             if(settings.paths != null || settings.typenames != null )
             {
                 m_accessor = new Accessor( settings.paths.ToArray(), settings.typenames.ToArray() );

@@ -16,7 +16,7 @@
             
 
             <Border BorderBrush="Black" BorderThickness="3">
-                <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="10,10,0,7" Width="139" Background="Gray">
+                <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="7,577,0,22" Width="139" Background="Gray">
                     <!--Need to Find a way to space things-->
                     <Button x:Name="My_Movies_Butt" Content="My Movies" Height="80" Click="My_Movies_Butt_Click" />
                     <Button x:Name="Do_Have_Butt" Content="Do I have this?" Height="80" Click="Do_Have_Butt_Click" />

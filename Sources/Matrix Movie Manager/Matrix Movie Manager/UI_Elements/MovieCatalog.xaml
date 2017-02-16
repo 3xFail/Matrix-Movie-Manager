@@ -12,7 +12,7 @@
         <DataTemplate x:Key="ItemTemplate">
             <WrapPanel>
                 <Button Click="Image_Click" DataContext="{Binding}">
-                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="225" Height="300" Stretch="Fill" Source="{Binding Poster}"/>
+                    <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="225" Height="300" Stretch="Fill" Source="{Binding Poster}" ToolTip="{Binding Title}" />
                 </Button>
                 <!--<TextBlock Text="{Binding}"/>-->
             </WrapPanel>
@@ -22,7 +22,7 @@
     <Border x:Name="outter_boarder" BorderBrush="Black" BorderThickness="5">
         <Grid Background="Gray">
 
-            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top" Width="1243" FontSize="30"/>
+            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1243" FontSize="30"/>
             <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106">
                 <ComboBoxItem>Title</ComboBoxItem>
                 <ComboBoxItem>Actor</ComboBoxItem>

@@ -16,8 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
-using System.IO;
-using System.Text;
+
 
 
 namespace Matrix_Movie_Manager
@@ -64,12 +63,15 @@ namespace Matrix_Movie_Manager
                                     case "filetypes":
                                         break;
                                     case "filetype":
-                                        m_settings.typenames.Add(reader["d3p1:name"].ToString());
+                                        //m_settings.typenames.Add(reader["d3p1:name"].ToString());
 
-                                        if (reader["d3p1:value"].Trim().ToUpper() == "TRUE")
-                                            m_settings.use_type.Add(true);
-                                        else
-                                            m_settings.use_type.Add(false);
+                                    if (reader["d3p1:value"].Trim().ToUpper() == "TRUE")
+                                    {
+                                        m_settings.typenames.Add(reader["d3p1:name"].ToString());
+                                        m_settings.use_type.Add(true);
+                                    }
+                                    else
+                                        m_settings.use_type.Add(false);
 
                                         break;
                                 }
@@ -84,7 +86,7 @@ namespace Matrix_Movie_Manager
                     //this is a freash startup
                 }
             }
-            m_manager = new Manager(m_settings);
+            //m_manager = new Manager(m_settings);
 
         }
 
