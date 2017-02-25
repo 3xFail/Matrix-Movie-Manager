@@ -9,6 +9,12 @@ namespace Matrix_Movie_Manager.Framework
 {
     public class Manager
     {
+        public Manager()
+        {
+            m_movie_list = new List<Movie>();
+            m_con = new OMBD_Connection();
+            m_accessor = new Accessor();
+        }
         public Manager(Settings settings )
         {
             m_con = new OMBD_Connection();

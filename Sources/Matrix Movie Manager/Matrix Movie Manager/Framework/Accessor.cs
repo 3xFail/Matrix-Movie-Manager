@@ -9,6 +9,10 @@ namespace Matrix_Movie_Manager.Framework
 {
     public class Accessor
     {
+        public Accessor()
+        {
+
+        }
         //single path constructor
         public Accessor(string path)
         {

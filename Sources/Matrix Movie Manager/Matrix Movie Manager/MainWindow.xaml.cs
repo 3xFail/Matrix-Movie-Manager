@@ -36,57 +36,11 @@ namespace Matrix_Movie_Manager
             m_settings.use_type = new List<bool>();
             StringBuilder output = new StringBuilder();
             
+            
 
             settings_file_path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + settings_file;
 
-            if (File.Exists(settings_file_path))
-            {
-                string xml = File.ReadAllText(settings_file_path);
-                if(xml.Length > 0)
-                {
-                    //parse as xml
-                    using( XmlReader reader = XmlReader.Create( new StringReader( xml ) ) )
-                    {
-
-                        while(reader.Read())
-                        {
-                            
-                                switch (reader.Name)
-                                {
-                                    case "root":
-                                        break;
-                                    case "paths":
-                                        break;
-                                    case "path":
-                                        m_settings.paths.Add(reader["d3p1:loc"].ToString());
-                                        break;
-                                    case "filetypes":
-                                        break;
-                                    case "filetype":
-                                        //m_settings.typenames.Add(reader["d3p1:name"].ToString());
-
-                                    if (reader["d3p1:value"].Trim().ToUpper() == "TRUE")
-                                    {
-                                        m_settings.typenames.Add(reader["d3p1:name"].ToString());
-                                        m_settings.use_type.Add(true);
-                                    }
-                                    else
-                                        m_settings.use_type.Add(false);
-
-                                        break;
-                                }
-                            
-                        }
-
-                    }
-                }
-                else
-                {
-                    //settings file was empty
-                    //this is a freash startup
-                }
-            }
-            //m_manager = new Manager(m_settings);
+            RefreshManager();
 
         }
 
@@ -114,11 +68,66 @@ namespace Matrix_Movie_Manager
         {
             Main_Frame.Navigate(new SettingsPage(this));
         }
+        public void RefreshManager()
+        {
+            m_manager.m_movie_list.Clear();
+            m_settings.paths.Clear();
+            m_settings.typenames.Clear();
+            m_settings.use_type.Clear();
+            if (File.Exists(settings_file_path))
+            {
+                string xml = File.ReadAllText(settings_file_path);
+                if (xml.Length > 0)
+                {
+                    //parse as xml
+                    using (XmlReader reader = XmlReader.Create(new StringReader(xml)))
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            switch (reader.Name)
+                            {
+                                case "root":
+                                    break;
+                                case "paths":
+                                    break;
+                                case "path":
+                                    m_settings.paths.Add(reader["d3p1:loc"].ToString());
+                                    break;
+                                case "filetypes":
+                                    break;
+                                case "filetype":
+                                    //m_settings.typenames.Add(reader["d3p1:name"].ToString());
+
+                                    if (reader["d3p1:value"].Trim().ToUpper() == "TRUE")
+                                    {
+                                        m_settings.typenames.Add(reader["d3p1:name"].ToString());
+                                        m_settings.use_type.Add(true);
+                                    }
+                                    else
+                                        m_settings.use_type.Add(false);
+
+                                    break;
+                            }
+
+                        }
+
+                    }
+                }
+                else
+                {
+                    //settings file was empty
+                    //this is a freash startup
+                }
+            }
+            m_manager = new Manager(m_settings);
+        }
 
         public string settings_file_path;
         private string settings_file = "\\Data_Files\\settings.xml";
         public Settings m_settings;
-        public Manager m_manager;
+        public Manager m_manager = new Manager();
 
     }
     public struct Settings

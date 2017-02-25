@@ -107,6 +107,8 @@ namespace Matrix_Movie_Manager.UI_Elements
             w.WriteEndElement(); //root 
             w.Close();
 
+            m_win.RefreshManager();
+
         }
 
         //opens a browse panel that allows a file to be selected to be used as a search path

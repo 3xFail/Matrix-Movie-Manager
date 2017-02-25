@@ -50,19 +50,16 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         }
 
-        private void Search_Button_Click(object sender, RoutedEventArgs e)
-        {
-            //this should filter the movie view grid
-            
-        }
+        
 
         private void Refresh_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
         {
+            
             m_win.Main_Frame.Navigate(new Welcome_Page());
         }
 
@@ -86,7 +83,35 @@ namespace Matrix_Movie_Manager.UI_Elements
             //Movie_List.ItemsSource = movie_posters_list;
 
             Movie_List.ItemsSource = m_win.m_manager.m_movie_list;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Movie_List.ItemsSource);
+            view.Filter = Filter;
+
         }
+
+        private bool Filter(object item)
+        {
+            if (String.IsNullOrEmpty(Search_Content.Text))
+                return true;
+            else
+            {
+                if (Search_Criteria.Text == "Title")
+                {
+                    return ((item as Movie).Title.IndexOf(Search_Content.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                }
+                else if (Search_Criteria.Text == "Actor")
+                {
+                    return ((item as Movie).Actors.IndexOf(Search_Content.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                }
+                else if (Search_Criteria.Text == "Genre")
+                {
+                    return ((item as Movie).Genre.IndexOf(Search_Content.Text, StringComparison.OrdinalIgnoreCase) >= 0);
+                }
+                else {
+                    return true;
+                }
+            }
+        }
+
 
         private void Image_Click(object sender, RoutedEventArgs e)
         {
@@ -127,6 +152,11 @@ namespace Matrix_Movie_Manager.UI_Elements
             else
                 MessageBox.Show("Could Not Find VLC's Path on this system. Make sure that it is installed");
             
+        }
+
+        private void Search_Content_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(Movie_List.ItemsSource).Refresh();
         }
     }
 }

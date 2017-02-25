@@ -22,14 +22,13 @@
     <Border x:Name="outter_boarder" BorderBrush="Black" BorderThickness="5">
         <Grid Background="Gray">
 
-            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1243" FontSize="30"/>
+            <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1243" FontSize="30" TextChanged="Search_Content_TextChanged"/>
             <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106">
                 <ComboBoxItem>Title</ComboBoxItem>
                 <ComboBoxItem>Actor</ComboBoxItem>
                 <ComboBoxItem>Genre</ComboBoxItem>
                 
             </ComboBox>
-            <Button x:Name="Search_Button" Content="Search" HorizontalAlignment="Left" Height="55" Margin="1504,10,0,0" VerticalAlignment="Top" Width="101" Click="Search_Button_Click" />
             <StackPanel HorizontalAlignment="Left" Height="200" Margin="10,745,0,0" VerticalAlignment="Top" Width="117">
                 <Button x:Name="Refresh_Button" Content="Refresh" Height="100" Click="Refresh_Button_Click" />
                 <Button x:Name="Close_Button" Content="Close" Height="100" Click="Close_Button_Click" />
