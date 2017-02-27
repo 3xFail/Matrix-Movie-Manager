@@ -50,7 +50,7 @@ namespace Matrix_Movie_Manager.Framework
                 }
                 else
                 {
-                    n_movie.Poster = new BitmapImage(new Uri(@"Data_Files\Images\images.png", UriKind.Relative));
+                    n_movie.Poster = new BitmapImage(new Uri(@"\Data_Files\Images\images.png", UriKind.Relative));
                 }
                 n_movie.Metascore = root.Attributes["metascore"].Value.ToString();
                 n_movie.imdbRating = root.Attributes["imdbRating"].Value.ToString();
@@ -75,7 +75,7 @@ namespace Matrix_Movie_Manager.Framework
                 n_movie.Runtime = "blank";
                 n_movie.Plot = "blank";
                 n_movie.Awards = "blank";
-                n_movie.Poster = new BitmapImage(new Uri(@"Data_Files\Images\images.png", UriKind.Relative));
+                n_movie.Poster = new BitmapImage(new Uri(@"\Data_Files\Images\images.png", UriKind.Relative));
                 n_movie.Metascore = "blank";
                 n_movie.imdbRating = "blank";
                 n_movie.Type = "blank";
