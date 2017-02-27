@@ -32,7 +32,7 @@ namespace Matrix_Movie_Manager.Framework
             XmlNode root;
 
             //checks response on the api call
-            if (check.Attributes["response"].Value.ToString() == "True")
+            if (check.Attributes["response"] != null)
             {
                 //accesses the movie section of the xml node
                 root = xml.DocumentElement.LastChild;
@@ -43,7 +43,15 @@ namespace Matrix_Movie_Manager.Framework
                 n_movie.Runtime = root.Attributes["runtime"].Value.ToString();
                 n_movie.Plot = root.Attributes["plot"].Value.ToString();
                 n_movie.Awards = root.Attributes["awards"].Value.ToString();
-                n_movie.Poster = new BitmapImage(new Uri(root.Attributes["poster"].Value.ToString()));
+
+                if (root.Attributes["poster"].Value.ToString() != "N/A")
+                {
+                    n_movie.Poster = new BitmapImage(new Uri(root.Attributes["poster"].Value.ToString()));
+                }
+                else
+                {
+                    n_movie.Poster = new BitmapImage(new Uri(@"Data_Files\Images\images.png", UriKind.Relative));
+                }
                 n_movie.Metascore = root.Attributes["metascore"].Value.ToString();
                 n_movie.imdbRating = root.Attributes["imdbRating"].Value.ToString();
                 n_movie.Type = root.Attributes["type"].Value.ToString();
@@ -61,7 +69,25 @@ namespace Matrix_Movie_Manager.Framework
             }
             else
             {
-                return null;
+                n_movie.Title = query;
+                n_movie.Released = "blank";
+                n_movie.Rated = "blank";
+                n_movie.Runtime = "blank";
+                n_movie.Plot = "blank";
+                n_movie.Awards = "blank";
+                n_movie.Poster = new BitmapImage(new Uri(@"Data_Files\Images\images.png", UriKind.Relative));
+                n_movie.Metascore = "blank";
+                n_movie.imdbRating = "blank";
+                n_movie.Type = "blank";
+
+                //these are comma delimited 
+                n_movie.Genre = "blank";
+                n_movie.Actors = "blank";
+                n_movie.Writer = "blank";
+                n_movie.Language = "blank";
+                n_movie.Country = "blank";
+                n_movie.Director = "blank";
+                return n_movie;
             }
         }
     }

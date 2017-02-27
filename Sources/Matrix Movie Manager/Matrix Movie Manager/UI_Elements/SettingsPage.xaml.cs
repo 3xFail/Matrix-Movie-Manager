@@ -27,9 +27,7 @@ namespace Matrix_Movie_Manager.UI_Elements
         public SettingsPage()
         {
             InitializeComponent();
-
-            
-           
+   
         }
         //ctor that takes a main window object to reference the main frame that is used throughout the program
         public SettingsPage(MainWindow win)

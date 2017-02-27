@@ -25,6 +25,7 @@ namespace Matrix_Movie_Manager.UI_Elements
     public partial class MovieCatalog : Page
     {
         MainWindow m_win;
+        object previous_item_clicked;
         public MovieCatalog()
         {
             InitializeComponent();
@@ -35,26 +36,6 @@ namespace Matrix_Movie_Manager.UI_Elements
             InitializeComponent();
             m_win = win;
             LoadImages();
-
-            //if (m_win.m_manager.m_movie_list.Count >= 1)
-            //{
-                
-            //    Movie_List.Items.Clear();
-            //    foreach(var image in movie_posters_list)
-            //    {
-            //        Movie_List.Items.Add(image);
-            //    }
-                
-                
-            //}
-
-        }
-
-        
-
-        private void Refresh_Button_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
@@ -118,12 +99,24 @@ namespace Matrix_Movie_Manager.UI_Elements
             
             if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
+                previous_item_clicked = ((Button)sender).DataContext;
                 Movie movie = m_win.m_manager.m_movie_list.Single(m => m == ((Button)sender).DataContext);
                 sb_title_content_label.Content = movie.Title;
                 sb_release_date_content_label.Content = movie.Released;
                 sb_runtime_content_label.Content = movie.Runtime;
                 sb_genre_content_label.Content = movie.Genre;
                 sb_plot_content_label.Text = movie.Plot;
+                Sidebar.Visibility = System.Windows.Visibility.Visible;
+            }
+            else if (Sidebar.Visibility == System.Windows.Visibility.Visible && previous_item_clicked != ((Button)sender).DataContext)
+            {
+                Movie movie = m_win.m_manager.m_movie_list.Single(m => m == ((Button)sender).DataContext);
+                sb_title_content_label.Content = movie.Title;
+                sb_release_date_content_label.Content = movie.Released;
+                sb_runtime_content_label.Content = movie.Runtime;
+                sb_genre_content_label.Content = movie.Genre;
+                sb_plot_content_label.Text = movie.Plot;
+                previous_item_clicked = ((Button)sender).DataContext;
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
             }
             else

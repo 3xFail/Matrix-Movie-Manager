@@ -29,8 +29,7 @@
                 <ComboBoxItem>Genre</ComboBoxItem>
                 
             </ComboBox>
-            <StackPanel HorizontalAlignment="Left" Height="200" Margin="10,745,0,0" VerticalAlignment="Top" Width="117">
-                <Button x:Name="Refresh_Button" Content="Refresh" Height="100" Click="Refresh_Button_Click" />
+            <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,845,0,0" VerticalAlignment="Top" Width="117">
                 <Button x:Name="Close_Button" Content="Close" Height="100" Click="Close_Button_Click" />
             </StackPanel>
 
