@@ -2,6 +2,7 @@
 using Matrix_Movie_Manager.UI_Elements;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,8 +36,8 @@ namespace Matrix_Movie_Manager
             m_settings.typenames = new List<string>();
             m_settings.use_type = new List<bool>();
             StringBuilder output = new StringBuilder();
-            
-            
+
+
 
             settings_file_path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + settings_file;
 
@@ -46,7 +47,7 @@ namespace Matrix_Movie_Manager
 
         private void My_Movies_Butt_Click(object sender, RoutedEventArgs e)
         {
-            Main_Frame.Navigate( new MovieCatalog(this));
+            Main_Frame.Navigate(new MovieCatalog(this));
         }
 
         private void Do_Have_Butt_Click(object sender, RoutedEventArgs e)
@@ -56,7 +57,7 @@ namespace Matrix_Movie_Manager
 
         private void Search_Butt_Click(object sender, RoutedEventArgs e)
         {
-
+            Main_Frame.Navigate(new NewMovieSearch(this));
         }
 
         private void Suggest_Butt_Click(object sender, RoutedEventArgs e)
@@ -70,6 +71,7 @@ namespace Matrix_Movie_Manager
         }
         public void RefreshManager()
         {
+            prog_bar.Visibility = Visibility.Visible;
             m_manager.m_movie_list.Clear();
             m_settings.paths.Clear();
             m_settings.typenames.Clear();
@@ -122,6 +124,17 @@ namespace Matrix_Movie_Manager
                 }
             }
             m_manager = new Manager(m_settings);
+
+            //Progress bar things that dont work
+            //m_manager.bgworker.ProgressChanged += MyBackgroundWorker_ProgressChanged;
+            //m_manager.bgworker.RunWorkerAsync(m_settings);
+            
+        }
+
+        public void MyBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Upadte the Progress bar
+            MyProgressBar.Value = e.ProgressPercentage;
         }
 
         public string settings_file_path;
@@ -130,7 +143,7 @@ namespace Matrix_Movie_Manager
         public Manager m_manager = new Manager();
 
     }
-    public struct Settings
+    public class Settings
     {
         public List<string> paths { get; set; }
         public List<string> typenames { get; set; }

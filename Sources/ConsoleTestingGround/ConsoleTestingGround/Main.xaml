@@ -3,23 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Matrix_Movie_Manager"
+        xmlns:local="clr-namespace:ConsoleTestingGround"
         mc:Ignorable="d"
         Title="Matrix Movie Manager"
         WindowState="Maximized" WindowStyle="SingleBorderWindow"  Height="1080" Width="1920">
+</Window>
 
 
-    
-    
+
     <Border BorderBrush="Black" BorderThickness="5">
         <Grid Background="Maroon">
 
-            <Border Background="Black" BorderBrush="Black" Height="300" Width="420" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
-                <Grid Name="prog_bar" Panel.ZIndex="0" Height="300" Width="420" Background="Black">
-                    <TextBlock Text="Please wait while movies load" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="400" Height="150" FontSize="48" />
-                    <ProgressBar x:Name="MyProgressBar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Minimum="0" Maximum="100" Height="100" Width="400" Margin="10,0,10,45"/>
-                </Grid>
-            </Border>
 
             <Border BorderBrush="Black" BorderThickness="3">
                 <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="7,577,0,22" Width="139" Background="Gray">
@@ -34,4 +28,4 @@
             <Frame x:Name="Main_Frame" HorizontalAlignment="Left" Height="982" Margin="170,10,0,0" VerticalAlignment="Top" Width="1722" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Border>
-</Window>
+

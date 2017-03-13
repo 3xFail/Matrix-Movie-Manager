@@ -56,10 +56,6 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="TMDbLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\TMDbLib.1.0.0\lib\net452\TMDbLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -78,6 +74,9 @@
     </Compile>
     <Compile Include="UI_Elements\MovieCatalog.xaml.cs">
       <DependentUpon>MovieCatalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI_Elements\NewMovieSearch.xaml.cs">
+      <DependentUpon>NewMovieSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI_Elements\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
@@ -102,6 +101,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI_Elements\MovieCatalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI_Elements\NewMovieSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

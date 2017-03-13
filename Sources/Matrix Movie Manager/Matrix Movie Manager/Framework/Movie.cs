@@ -33,7 +33,7 @@ namespace Matrix_Movie_Manager.Framework
             Type = temp.Type;
         }
         public string Title { get; set; }
-        //public string Year { get; set; }
+        public string Year { get; set; }
         public string Rated { get; set; }
         public string Released { get; set; }
         public string Runtime { get; set; }

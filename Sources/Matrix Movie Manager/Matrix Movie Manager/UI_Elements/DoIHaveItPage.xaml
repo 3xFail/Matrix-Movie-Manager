@@ -8,12 +8,58 @@
       d:DesignHeight="1000" d:DesignWidth="1680"
       Title="DoIHaveItPage">
 
+
+    <Page.Resources>
+        <DataTemplate x:Key="ItemTemplate">
+            <WrapPanel>
+                <Button Click="Image_Click" DataContext="{Binding}">
+                    <Grid Width="225" Height="300">
+                        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Width="225" Height="300" Stretch="Fill" Source="{Binding Poster}" ToolTip="{Binding Title}" />
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="{Binding Title}" FontFamily="Times New Roman" Foreground="White" FontWeight="UltraBold" TextWrapping="Wrap"/>
+                    </Grid>
+                </Button>
+            </WrapPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="EmptyListBoxTemplate">
+            <TextBlock Text="No Movies Found" />
+        </DataTemplate>
+    </Page.Resources>
+
     <Border BorderBrush="Black" BorderThickness="3">
         <Grid Background="Crimson">
-            <Label x:Name="Do_I_Have" Content="Do I have this???" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" Height="130" Margin="627,292,0,0" VerticalAlignment="Top" Width="485"/>
-            <TextBox x:Name="Input_Box"  HorizontalAlignment="Left" Height="65" Margin="327,422,0,0" FontSize="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="950"/>
-            <Button x:Name="Do_I_Have_it_button" Content="Search" HorizontalAlignment="Left" Height="65" Margin="1277,422,0,0" VerticalAlignment="Top" Width="140" Click="Do_I_Have_it_button_Click"/>
-            <Button x:Name="Back_button" Content="Back" HorizontalAlignment="Left" Height="90" Margin="1457,867,0,0" VerticalAlignment="Top" Width="185" Click="Back_button_Click"/>
+            <Label x:Name="Do_I_Have" Content="Do I have this???" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" Height="130" Margin="632,22,0,0" VerticalAlignment="Top" Width="485"/>
+            <TextBox x:Name="Search_Content"  HorizontalAlignment="Left" Height="65" Margin="322,127,0,0" FontSize="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="845" TextChanged="Search_Content_TextChanged"/>
+            <Button x:Name="Do_I_Have_it_button" Content="Search" HorizontalAlignment="Left" Height="65" Margin="1292,127,0,0" VerticalAlignment="Top" Width="140" Click="Do_I_Have_it_button_Click"/>
+            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="65" Margin="1167,127,0,0" VerticalAlignment="Top" Width="125">
+                <ComboBoxItem>Title</ComboBoxItem>
+                <ComboBoxItem>Actor</ComboBoxItem>
+                <ComboBoxItem>Genre</ComboBoxItem>
+            </ComboBox>
+            <!--<Grid HorizontalAlignment="Left" Height="515" Margin="247,317,0,0" VerticalAlignment="Top" Width="1395"/>-->
+            <!--<Grid Name="Sidebar" Visibility="Visible" HorizontalAlignment="Left" Height="740" Margin="0,217,0,0" VerticalAlignment="Top" Width="242">
+                
+            </Grid>-->
+            <ListView ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding m_movie_list}" Background="Black" Margin="322,217,32,37">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="5"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+            <Grid Name="Sidebar" Visibility="Collapsed" HorizontalAlignment="Left" Height="815" Margin="10,127,0,0" VerticalAlignment="Top" Width="307">
+                <Rectangle Name="rect"  Fill="#FFF4F4F5" Stroke="Black"/>
+                <Label x:Name="sb_title_label" Content="Title:" HorizontalAlignment="Left" Height="45"  VerticalAlignment="Top" Width="60" Margin="0,30,0,0"/>
+                <Label x:Name="sb_title_content_label" Content="" HorizontalAlignment="Left" Height="45" Margin="50,30,0,0" VerticalAlignment="Top" Width="185"/>
+                <Label x:Name="sb_release_date_label" Content="Release Date:" HorizontalAlignment="Left" Height="45" Margin="0,160,0,0" VerticalAlignment="Top" Width="89"/>
+                <Label x:Name="sb_release_date_content_label" Content="" HorizontalAlignment="Left" Height="40" Margin="100,160,0,0" VerticalAlignment="Top" Width="156"/>
+                <Label x:Name="sb_runtime_label" Content="Runtime:" HorizontalAlignment="Left" Height="40" Margin="0,210,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label x:Name="sb_runtime_content_label" Content="" HorizontalAlignment="Left" Height="35" Margin="60,210,0,0" VerticalAlignment="Top" Width="165"/>
+                <Label x:Name="sb_genre_label" Content="Genres:" HorizontalAlignment="Left" Height="35" Margin="0,255,0,0" VerticalAlignment="Top" Width="60"/>
+                <Label x:Name="sb_genre_content_label" Content="" HorizontalAlignment="Left" Height="35" Margin="60,255,0,0" VerticalAlignment="Top" Width="165"/>
+                <Label x:Name="sb_plot_label" Content="Plot:" HorizontalAlignment="Left" Height="35" Margin="0,295,0,0" VerticalAlignment="Top" Width="245"/>
+                <TextBlock x:Name="sb_plot_content_label" Text="" TextWrapping="WrapWithOverflow"  HorizontalAlignment="Left" Height="300" Margin="15,335,0,0" VerticalAlignment="Top" Width="267"/>
+                <Button x:Name="Watch_Button" Content="Watch it now" HorizontalAlignment="Left" Height="110" Margin="15,695,0,0" VerticalAlignment="Top" Width="282" Click="Watch_Button_Click"/>
+            </Grid>
 
         </Grid>
     </Border>

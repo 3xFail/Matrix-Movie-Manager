@@ -61,7 +61,7 @@ namespace Matrix_Movie_Manager.UI_Elements
                 this.movie_names.Add(movie.Title);
             }
 
-            //Movie_List.ItemsSource = movie_posters_list;
+            Movie_List.ItemsSource = movie_posters_list;
 
             Movie_List.ItemsSource = m_win.m_manager.m_movie_list;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(Movie_List.ItemsSource);
