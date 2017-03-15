@@ -133,7 +133,7 @@ namespace Matrix_Movie_Manager.UI_Elements
 
             if (vlcpath != null)
             {
-                Movie movie = m_win.m_manager.m_movie_list.Single(m => m.Title == sb_title_content_label.Content.ToString());
+                Movie movie = m_win.m_manager.m_movie_list.First(m => m.Title == sb_title_content_label.Content.ToString());
 
 
                 Process p = new Process();

@@ -5,7 +5,7 @@
   </paths>
   <filetypes>
     <filetype d3p1:name="MKV" d3p1:value="True" xmlns:d3p1="urn:1" />
-    <filetype d3p1:name="AVI" d3p1:value="False" xmlns:d3p1="urn:1" />
+    <filetype d3p1:name="AVI" d3p1:value="True" xmlns:d3p1="urn:1" />
     <filetype d3p1:name="MP4" d3p1:value="True" xmlns:d3p1="urn:1" />
   </filetypes>
 </root>

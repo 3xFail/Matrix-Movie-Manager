@@ -14,8 +14,8 @@
     <Border BorderBrush="Black" BorderThickness="5">
         <Grid Background="Maroon">
 
-            <Border Name="prog_bar" Visibility="Collapsed" Background="Black" BorderBrush="Black" Height="300" Width="420" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
-                <Grid Panel.ZIndex="10" Height="300" Width="420" Background="Black">
+            <Border Name="prog_bar" Visibility="Collapsed" Panel.ZIndex="0" Background="Black" BorderBrush="Black" Height="300" Width="420" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
+                <Grid  Height="300" Width="420" Background="Black">
                     <TextBlock Text="Please wait while movies load" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="400" Height="150" FontSize="48" />
                     <ProgressBar x:Name="MyProgressBar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Minimum="0" Maximum="100" Height="100" Width="400" Margin="10,0,10,45"/>
                 </Grid>

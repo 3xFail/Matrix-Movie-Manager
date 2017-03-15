@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Web;
 using System.Windows.Media.Imaging;
+using System.Text.RegularExpressions;
 
 namespace Matrix_Movie_Manager.Framework
 {
@@ -22,11 +23,42 @@ namespace Matrix_Movie_Manager.Framework
 
         public Movie GetMovie(string query, string apiKey = "")
         {
+            string encoded_query = "";
+            int result = 0;
+            StringBuilder sb = new StringBuilder();
             XmlDataDocument xml = new XmlDataDocument();
 
-            string encoded_query = HttpUtility.UrlEncode(query);
+            
+            string[] title_words = Regex.Split(query, @" ");
+            int.TryParse(title_words.Last().ToString(), out result);
 
-            xml.Load(omdb_default + "t=" + encoded_query + "&r=xml");
+            if(result >= 1930 && result <= int.Parse(DateTime.Now.Year.ToString()))
+            {
+                foreach (string item in title_words)
+                {
+                    if (item == title_words.Last())
+                    {
+
+                    }
+                    else
+                    {
+                        sb.Append(item);
+                        sb.Append(" ");
+                    }
+                }
+                encoded_query = HttpUtility.UrlEncode(sb.ToString());
+
+                xml.Load(omdb_default + "t=" + encoded_query + "&y=" + title_words.Last() + "&r=xml");
+            }
+            else
+            {
+                encoded_query = HttpUtility.UrlEncode(query);
+                xml.Load(omdb_default + "t=" + encoded_query + "&r=xml");
+            }
+
+            
+
+
 
             XmlNode check = xml.DocumentElement;
             XmlNode root;
