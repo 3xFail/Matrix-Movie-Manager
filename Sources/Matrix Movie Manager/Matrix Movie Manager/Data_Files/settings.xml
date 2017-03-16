@@ -1,7 +1,6 @@
 <root xmlns="urn:1">
   <paths>
-    <path d3p1:loc="D:\Sp Test Copies" xmlns:d3p1="urn:1" />
-    <path d3p1:loc="E:\Movies" xmlns:d3p1="urn:1" />
+    <path d3p1:loc="C:\Users\Ryan\Videos" xmlns:d3p1="urn:1" />
   </paths>
   <filetypes>
     <filetype d3p1:name="MKV" d3p1:value="True" xmlns:d3p1="urn:1" />

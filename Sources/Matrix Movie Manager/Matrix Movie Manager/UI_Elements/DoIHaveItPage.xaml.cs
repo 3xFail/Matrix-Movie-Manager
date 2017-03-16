@@ -38,6 +38,8 @@ namespace Matrix_Movie_Manager.UI_Elements
             m_win = win;
             Movie_List.Visibility = System.Windows.Visibility.Hidden;
             LoadImages();
+            Search_Content.Focus();
+            Search_Criteria.SelectedIndex = 0;
         }
 
         private void Do_I_Have_it_button_Click(object sender, RoutedEventArgs e)
@@ -129,7 +131,9 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Watch_Button_Click(object sender, RoutedEventArgs e)
         {
-            string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
+            //string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
+            string vlcpath = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
+
 
             if (vlcpath != null)
             {

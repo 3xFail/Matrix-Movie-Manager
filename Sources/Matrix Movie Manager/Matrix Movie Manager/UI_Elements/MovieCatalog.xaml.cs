@@ -36,6 +36,8 @@ namespace Matrix_Movie_Manager.UI_Elements
             InitializeComponent();
             m_win = win;
             LoadImages();
+            Search_Content.Focus();
+            Search_Criteria.SelectedIndex = 0;
         }
 
         private void Close_Button_Click(object sender, RoutedEventArgs e)
@@ -127,7 +129,8 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Watch_Button_Click(object sender, RoutedEventArgs e)
         {
-            string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
+            //string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
+            string vlcpath = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
 
             if (vlcpath != null)
             {

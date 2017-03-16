@@ -32,6 +32,7 @@ namespace Matrix_Movie_Manager.UI_Elements
         {
             InitializeComponent();
             m_win = window;
+            textBox.Focus();
         }
 
         private void search_button_Click(object sender, RoutedEventArgs e)
