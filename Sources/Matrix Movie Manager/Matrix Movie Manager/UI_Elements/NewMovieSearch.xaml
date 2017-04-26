@@ -8,10 +8,10 @@
       d:DesignHeight="1000" d:DesignWidth="1680"
       Title="NewMovieSearch">
 
-    <Border x:Name="outter_boarder" BorderBrush="Black" BorderThickness="5">
-        <Grid Background="Gray">
+    <Border x:Name="outter_boarder" BorderBrush="{StaticResource BorderColor}" BorderThickness="5">
+        <Grid Background="{StaticResource SecondColor}">
             <Label x:Name="header_label" Content="Find a new movie" FontSize="72" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="105" Margin="370,110,0,0" VerticalAlignment="Top" Width="1055"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="65" Margin="370,220,0,0" TextWrapping="Wrap" FontSize="34" Text="" VerticalAlignment="Top" Width="910"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="65" Margin="370,220,0,0" TextWrapping="Wrap" FontSize="34" Text="" VerticalAlignment="Top" Width="910" Foreground="{StaticResource FontColor}" />
             <Button x:Name="search_button" Content="Search" HorizontalAlignment="Left" Height="65" Margin="1280,220,0,0" VerticalAlignment="Top" Width="135" Click="search_button_Click"/>
 
         </Grid>

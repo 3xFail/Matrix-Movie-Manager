@@ -8,11 +8,11 @@
         Title="Matrix Movie Manager"
         WindowState="Maximized" WindowStyle="SingleBorderWindow"  Height="1080" Width="1920">
 
+    
 
-    
-    
+
     <Border BorderBrush="Black" BorderThickness="5">
-        <Grid Background="Maroon">
+        <Grid Background="{StaticResource MainColor}">
 
             <Border Name="prog_bar" Visibility="Collapsed" Panel.ZIndex="0" Background="Black" BorderBrush="Black" Height="300" Width="420" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
                 <Grid  Height="300" Width="420" Background="Black">
@@ -21,13 +21,13 @@
                 </Grid>
             </Border>
 
-            <Border BorderBrush="Black" BorderThickness="3">
-                <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="7,577,0,22" Width="139" Background="Gray">
+            <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="3">
+                <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="7,661,0,22" Width="139" Background="Gray">
                     <!--Need to Find a way to space things-->
                     <Button x:Name="My_Movies_Butt" Content="My Movies" Height="80" Click="My_Movies_Butt_Click" />
                     <Button x:Name="Do_Have_Butt" Content="Do I have this?" Height="80" Click="Do_Have_Butt_Click" />
                     <Button x:Name="Search_Butt" Content="Search for a New Movie" Height="80" Click="Search_Butt_Click" />
-                    <Button x:Name="Suggest_Butt" Content="Suggest a Movie" Height="80" Click="Suggest_Butt_Click" />
+                    <!--<Button x:Name="Suggest_Butt" Content="Suggest a Movie" Height="80" Click="Suggest_Butt_Click" />-->
                     <Button x:Name="Settings_Butt" Content="Settings" Height="80" Click="Settings_Butt_Click" />
                 </StackPanel>
             </Border>
@@ -35,3 +35,5 @@
         </Grid>
     </Border>
 </Window>
+
+

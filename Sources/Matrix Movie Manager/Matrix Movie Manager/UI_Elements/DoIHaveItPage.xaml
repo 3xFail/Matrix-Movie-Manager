@@ -23,14 +23,15 @@
         <DataTemplate x:Key="EmptyListBoxTemplate">
             <TextBlock Text="No Movies Found" />
         </DataTemplate>
+
     </Page.Resources>
 
-    <Border BorderBrush="Black" BorderThickness="3">
-        <Grid Background="Crimson">
-            <Label x:Name="Do_I_Have" Content="Do I have this???" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" Height="130" Margin="632,22,0,0" VerticalAlignment="Top" Width="485"/>
+    <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="3">
+        <Grid Background="{StaticResource SecondColor}">
+            <Label x:Name="Do_I_Have" Content="Do I have this???" Foreground="{StaticResource FontColor}" FontSize="60" FontWeight="Bold" HorizontalAlignment="Left" Height="130" Margin="632,22,0,0" VerticalAlignment="Top" Width="485"/>
             <TextBox x:Name="Search_Content"  HorizontalAlignment="Left" Height="65" Margin="322,127,0,0" FontSize="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="845" TextChanged="Search_Content_TextChanged"/>
             <Button x:Name="Do_I_Have_it_button" Content="Search" HorizontalAlignment="Left" Height="65" Margin="1292,127,0,0" VerticalAlignment="Top" Width="140" Click="Do_I_Have_it_button_Click"/>
-            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="65" Margin="1167,127,0,0" VerticalAlignment="Top" Width="125">
+            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="65" Margin="1167,127,0,0" VerticalAlignment="Top" Width="125" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <ComboBoxItem>Title</ComboBoxItem>
                 <ComboBoxItem>Actor</ComboBoxItem>
                 <ComboBoxItem>Genre</ComboBoxItem>
@@ -39,7 +40,7 @@
             <!--<Grid Name="Sidebar" Visibility="Visible" HorizontalAlignment="Left" Height="740" Margin="0,217,0,0" VerticalAlignment="Top" Width="242">
                 
             </Grid>-->
-            <ListView ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding m_movie_list}" Background="Black" Margin="322,217,32,37">
+            <ListView ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" x:Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding m_movie_list}" Background="{StaticResource ThirdColor}" Margin="322,217,32,37">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <UniformGrid Columns="5"/>

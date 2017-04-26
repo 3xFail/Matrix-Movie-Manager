@@ -21,14 +21,14 @@
         </DataTemplate>
     </Page.Resources>
 
-    <Border x:Name="outter_boarder" BorderBrush="Black" BorderThickness="5">
-        <Grid Background="Gray">
+    <Border x:Name="outter_boarder" BorderBrush="{StaticResource BorderColor}" BorderThickness="5">
+        <Grid Background="{StaticResource SecondColor}">
 
             <TextBox x:Name="Search_Content" HorizontalAlignment="Left" Height="55" Margin="155,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1243" FontSize="30" TextChanged="Search_Content_TextChanged"/>
-            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106">
-                <ComboBoxItem>Title</ComboBoxItem>
-                <ComboBoxItem>Actor</ComboBoxItem>
-                <ComboBoxItem>Genre</ComboBoxItem>
+            <ComboBox x:Name="Search_Criteria" HorizontalAlignment="Left" Height="55" Margin="1398,10,0,0" VerticalAlignment="Top" Width="106" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <ComboBoxItem HorizontalAlignment="Center" FontWeight="Bold">Title</ComboBoxItem>
+                <ComboBoxItem HorizontalAlignment="Center" FontWeight="Bold">Actor</ComboBoxItem>
+                <ComboBoxItem HorizontalAlignment="Center" FontWeight="Bold">Genre</ComboBoxItem>
 
             </ComboBox>
             <StackPanel HorizontalAlignment="Left" Height="100" Margin="10,845,0,0" VerticalAlignment="Top" Width="117">
@@ -42,7 +42,7 @@
             <Grid x:Name="movie_grid" HorizontalAlignment="Left" Height="855" Margin="155,90,0,0" VerticalAlignment="Top" Width="1243">
 
                 <ListView ScrollViewer.CanContentScroll="True" 
-          ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Path = m_movie_list}" Background="Black">
+          ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Name="Movie_List" ItemTemplate="{StaticResource ItemTemplate}" ItemsSource="{Binding Path = m_movie_list}" Background="{StaticResource ThirdColor}">
                     <ListView.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Columns="5"/>
