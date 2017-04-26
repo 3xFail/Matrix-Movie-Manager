@@ -6,5 +6,10 @@
     <filetype d3p1:name="MKV" d3p1:value="True" xmlns:d3p1="urn:1" />
     <filetype d3p1:name="AVI" d3p1:value="True" xmlns:d3p1="urn:1" />
     <filetype d3p1:name="MP4" d3p1:value="True" xmlns:d3p1="urn:1" />
+    <MainColor d3p1:Color="#FF00FFFF" xmlns:d3p1="urn:1" />
+    <SecondColor d3p1:Color="#FFDC143C" xmlns:d3p1="urn:1" />
+    <ThirdColor d3p1:Color="#FF808080" xmlns:d3p1="urn:1" />
+    <BorderColor d3p1:Color="#FF000000" xmlns:d3p1="urn:1" />
+    <FontColor d3p1:Color="#FF000000" xmlns:d3p1="urn:1" />
   </filetypes>
 </root>

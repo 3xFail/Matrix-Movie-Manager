@@ -52,6 +52,14 @@ namespace Matrix_Movie_Manager.UI_Elements
                 AVI_Check.IsChecked = m_win.m_settings.use_type[1];
                 MP4_Check.IsChecked = m_win.m_settings.use_type[2];
             }
+
+            var myResourceDictionary = new ResourceDictionary();
+            myResourceDictionary.Source = new Uri("Colors.xaml", UriKind.RelativeOrAbsolute);
+            Main_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["MainColor"]).Color;
+            Sec_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["SecondColor"]).Color;
+            Third_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["ThirdColor"]).Color;
+            Border_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["BorderColor"]).Color;
+            Text_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["FontColor"]).Color;
         }
         // returns the aplication to the main screen
         private void Back_button_Click(object sender, RoutedEventArgs e)
@@ -88,17 +96,37 @@ namespace Matrix_Movie_Manager.UI_Elements
             w.WriteStartElement("filetype", "urn:1");
             w.WriteAttributeString("name", "urn:1", MKV_Check.Content.ToString());
             w.WriteAttributeString("value", "urn:1", MKV_Check.IsChecked.ToString());
-            w.WriteEndElement(); //filetype
+            w.WriteEndElement(); 
 
             w.WriteStartElement("filetype", "urn:1");
             w.WriteAttributeString("name", "urn:1", AVI_Check.Content.ToString());
             w.WriteAttributeString("value", "urn:1", AVI_Check.IsChecked.ToString());
-            w.WriteEndElement(); //filetype
+            w.WriteEndElement(); 
 
             w.WriteStartElement("filetype", "urn:1");
             w.WriteAttributeString("name", "urn:1", MP4_Check.Content.ToString());
             w.WriteAttributeString("value", "urn:1", MP4_Check.IsChecked.ToString());
-            w.WriteEndElement(); //filetype
+            w.WriteEndElement();
+
+            w.WriteStartElement("MainColor", "urn:1");
+            w.WriteAttributeString("Color", "urn:1", Main_Color.SelectedColor.ToString());
+            w.WriteEndElement();
+
+            w.WriteStartElement("SecondColor", "urn:1");
+            w.WriteAttributeString("Color", "urn:1", Sec_Color.SelectedColor.ToString());
+            w.WriteEndElement();
+
+            w.WriteStartElement("ThirdColor", "urn:1");
+            w.WriteAttributeString("Color", "urn:1", Third_Color.SelectedColor.ToString());
+            w.WriteEndElement();
+
+            w.WriteStartElement("BorderColor", "urn:1");
+            w.WriteAttributeString("Color", "urn:1", Border_Color.SelectedColor.ToString());
+            w.WriteEndElement();
+
+            w.WriteStartElement("FontColor", "urn:1");
+            w.WriteAttributeString("Color", "urn:1", Text_Color.SelectedColor.ToString());
+            w.WriteEndElement();
 
 
             w.WriteEndElement(); //filetypes

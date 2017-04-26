@@ -42,6 +42,7 @@ namespace Matrix_Movie_Manager
 
             settings_file_path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + settings_file;
 
+            this.Resources.Source = new Uri("Colors.xaml", UriKind.RelativeOrAbsolute);
             RefreshManager();
 
         }
@@ -77,6 +78,8 @@ namespace Matrix_Movie_Manager
             m_settings.paths.Clear();
             m_settings.typenames.Clear();
             m_settings.use_type.Clear();
+            //var myResourceDictionary = this.Resources;
+            SolidColorBrush new_brush = new SolidColorBrush();
             if (File.Exists(settings_file_path))
             {
                 string xml = File.ReadAllText(settings_file_path);
@@ -110,8 +113,34 @@ namespace Matrix_Movie_Manager
                                     }
                                     else
                                         m_settings.use_type.Add(false);
-
                                     break;
+                                case "MainColor":
+                                    //System.Windows.Forms.MessageBox.Show((reader["d3p1:Color"]).ToString());
+                                    //new_brush = new SolidColorBrush();
+                                    //new_brush.Color = ((Color)(ColorConverter.ConvertFromString(reader["d3p1:Color"].ToString())));
+                                    //((SolidColorBrush)(Application.Current.Resources["MainColor"])).Color = new_brush.Color;
+                                    break;
+                                case "SecondColor":
+                                    //new_brush = new SolidColorBrush();
+                                    //new_brush.Color = ((Color)(ColorConverter.ConvertFromString(reader["d3p1:Color"].ToString())));
+                                    //((SolidColorBrush)(Application.Current.Resources["SecondColor"])).Color = new_brush.Color;
+                                    break;
+                                case "ThirdColor":
+                                    //new_brush = new SolidColorBrush();
+                                    //new_brush.Color = ((Color)(ColorConverter.ConvertFromString(reader["d3p1:Color"].ToString())));
+                                    //((SolidColorBrush)(Application.Current.Resources["ThirdColor"])).Color = new_brush.Color;
+                                    break;
+                                case "BorderColor":
+                                    //new_brush = new SolidColorBrush();
+                                    //new_brush.Color = ((Color)(ColorConverter.ConvertFromString(reader["d3p1:Color"].ToString())));
+                                    //((SolidColorBrush)(Application.Current.Resources["BorderColor"])).Color = new_brush.Color;
+                                    break;
+                                case "FontColor":
+                                    //new_brush = new SolidColorBrush();
+                                    //new_brush.Color = ((Color)(ColorConverter.ConvertFromString(reader["d3p1:Color"].ToString())));
+                                    //((SolidColorBrush)(Application.Current.Resources["FontColor"])).Color = new_brush.Color;
+                                    break;
+
                             }
 
                         }
