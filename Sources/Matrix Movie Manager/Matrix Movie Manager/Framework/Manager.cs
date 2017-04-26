@@ -24,13 +24,28 @@ namespace Matrix_Movie_Manager.Framework
             bgworker.DoWork += bgworker_dowork;
             bgworker.RunWorkerCompleted += bgworker_runworkercompleted;
             file_count = 0;
+            //m_win = new MainWindow();
         }
-
+        public Manager(MainWindow win)
+        {
+            m_movie_list = new List<Movie>();
+            //static_list = new List<Movie>();
+            m_con = new OMBD_Connection();
+            m_accessor = new Accessor();
+            bgworker = new BackgroundWorker();
+            bgworker.WorkerReportsProgress = true;
+            bgworker.WorkerSupportsCancellation = true;
+            bgworker.DoWork += bgworker_dowork;
+            bgworker.RunWorkerCompleted += bgworker_runworkercompleted;
+            file_count = 0;
+            m_win = win;
+        }
         public Manager(Manager man)
         {
             m_movie_list = man.m_movie_list;
             m_con = man.m_con;
             m_accessor = man.m_accessor;
+            m_win = man.m_win;
 
         }
         public Manager(Settings settings)
@@ -67,10 +82,10 @@ namespace Matrix_Movie_Manager.Framework
 
         private void bgworker_runworkercompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            int count = 0;
+            //int count = 0;
             bgworker.DoWork -= bgworker_dowork;
             bgworker.RunWorkerCompleted -= bgworker_runworkercompleted;
-            bgworker.ProgressChanged -= (Application.Current.MainWindow as MainWindow).MyBackgroundWorker_ProgressChanged;
+            bgworker.ProgressChanged -= MyBackgroundWorker_ProgressChanged;
             (Application.Current.MainWindow as MainWindow).MyProgressBar.Value = 0;
             (Application.Current.MainWindow as MainWindow).prog_bar.Visibility = System.Windows.Visibility.Hidden;
 
@@ -79,11 +94,11 @@ namespace Matrix_Movie_Manager.Framework
             //m_accessor = ((Manager)e.Result).m_accessor;
             //file_count = ((Manager)e.Result).file_count;
 
-            foreach (var item in ((Manager)e.Result).m_movie_list)
-            {
-                m_movie_list[count].Poster = new BitmapImage(new Uri(item.Poster.ToString()));
-                count++;
-            }
+            //foreach (var item in ((Manager)e.Result).m_movie_list)
+            //{
+            //    m_movie_list[count].Poster = new BitmapImage(new Uri(item.Poster.ToString()));
+            //    count++;
+            //}
         }
 
         private void bgworker_dowork(object sender, DoWorkEventArgs e)
@@ -121,6 +136,12 @@ namespace Matrix_Movie_Manager.Framework
             }
         }
 
+        public void MyBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            // Upadte the Progress bar
+            m_win.MyProgressBar.Value = e.ProgressPercentage;
+        }
+
         //public void set_movie_lists()
         //{
         //    m_movie_list = static_list;
@@ -133,6 +154,8 @@ namespace Matrix_Movie_Manager.Framework
         public OMBD_Connection m_con { get; set; }
         public Accessor m_accessor { get; set; }
         public double file_count { get; set; }
+
+        public MainWindow m_win { get; set; }
 
     }
 }

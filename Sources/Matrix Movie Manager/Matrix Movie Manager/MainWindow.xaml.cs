@@ -37,6 +37,7 @@ namespace Matrix_Movie_Manager
             m_settings.use_type = new List<bool>();
             StringBuilder output = new StringBuilder();
 
+            m_manager = new Manager(this);
 
 
             settings_file_path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + settings_file;
@@ -126,16 +127,12 @@ namespace Matrix_Movie_Manager
             m_manager = new Manager(m_settings);
 
             //Progress bar things that dont work
-            //m_manager.bgworker.ProgressChanged += MyBackgroundWorker_ProgressChanged;
+            //m_manager.bgworker.ProgressChanged += m_manager.MyBackgroundWorker_ProgressChanged;
             //m_manager.bgworker.RunWorkerAsync(m_settings);
             
         }
 
-        public void MyBackgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            // Upadte the Progress bar
-            MyProgressBar.Value = e.ProgressPercentage;
-        }
+        
 
         public string settings_file_path;
         private string settings_file = "\\Data_Files\\settings.xml";

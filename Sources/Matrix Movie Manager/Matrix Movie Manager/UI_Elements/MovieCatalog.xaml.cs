@@ -129,8 +129,8 @@ namespace Matrix_Movie_Manager.UI_Elements
 
         private void Watch_Button_Click(object sender, RoutedEventArgs e)
         {
-            //string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
-            string vlcpath = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
+            string vlcpath = @"C:\Program Files\VideoLAN\VLC\vlc.exe";
+            //string vlcpath = @"C:\Program Files (x86)\VideoLAN\VLC\vlc.exe";
 
             if (vlcpath != null)
             {
