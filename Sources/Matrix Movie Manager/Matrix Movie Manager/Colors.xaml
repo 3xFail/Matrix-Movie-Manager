@@ -5,11 +5,11 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
-            <SolidColorBrush x:Key="MainColor" Color="Red"/>
-            <SolidColorBrush x:Key="SecondColor" Color="Crimson"/>
-            <SolidColorBrush x:Key="ThirdColor" Color="Gray"/>
-            <SolidColorBrush x:Key="BorderColor" Color="Black" />
-            <SolidColorBrush x:Key="FontColor" Color="Black" />
+            <SolidColorBrush x:Key="MainColor" Color="Crimson"/>
+            <SolidColorBrush x:Key="SecondColor" Color="Salmon"/>
+            <SolidColorBrush x:Key="ThirdColor"/>
+            <SolidColorBrush x:Key="BorderColor" />
+            <SolidColorBrush x:Key="FontColor" />
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

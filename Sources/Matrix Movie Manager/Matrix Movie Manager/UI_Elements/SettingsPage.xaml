@@ -9,9 +9,9 @@
       d:DesignHeight="515" d:DesignWidth="1680"
       Title="SettingsPage">
 
-    <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="5">
-        <Grid Background="{StaticResource SecondColor}">
-            <StackPanel HorizontalAlignment="Left" Height="120" Margin="1435,30,0,0" VerticalAlignment="Top" Width="190" Background="{StaticResource ThirdColor}">
+    <Border BorderBrush="{DynamicResource BorderColor}" BorderThickness="5">
+        <Grid Background="{DynamicResource SecondColor}">
+            <StackPanel HorizontalAlignment="Left" Height="120" Margin="1435,30,0,0" VerticalAlignment="Top" Width="190" Background="{DynamicResource ThirdColor}">
                 <Label x:Name="File_Types_Lable" Content="Searchable File Types" FontWeight="Bold"/>
                 <CheckBox x:Name="MKV_Check" Content="MKV"  Height="30" />
                 <CheckBox x:Name="AVI_Check" Content="AVI"  Height="30" />
@@ -29,15 +29,15 @@
             </ListView>
             <Button x:Name="Back_button" Content="Back" HorizontalAlignment="Left" Height="89" Margin="1510,385,0,0" VerticalAlignment="Top" Width="115" Click="Back_button_Click"/>
             <Button x:Name="Save_button" Content="Save" HorizontalAlignment="Left" Height="89" Margin="1390,385,0,0" VerticalAlignment="Top" Width="115" Click="Save_button_Click"/>
-            <Grid HorizontalAlignment="Left" Height="120" Margin="55,30,0,0" VerticalAlignment="Top" Width="1375" Background="{StaticResource ThirdColor}">
-                <Label x:Name="Path_Location_label" Content="Path Location:" Foreground="{StaticResource FontColor}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="55" Margin="10,30,0,0" VerticalAlignment="Top" Width="145"/>
+            <Grid HorizontalAlignment="Left" Height="120" Margin="55,30,0,0" VerticalAlignment="Top" Width="1375" Background="{DynamicResource ThirdColor}">
+                <Label x:Name="Path_Location_label" Content="Path Location:" Foreground="{DynamicResource FontColor}" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" Height="55" Margin="10,30,0,0" VerticalAlignment="Top" Width="145"/>
                 <TextBox x:Name="Input_Text" HorizontalAlignment="Left" Height="55" Margin="155,30,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="1070"/>
                 <Button x:Name="Browse_button" Content="Browse" HorizontalAlignment="Left" Height="55" Margin="1230,30,0,0" VerticalAlignment="Top" Width="135" Click="Browse_button_Click" />
 
             </Grid>
 
 
-            <Grid HorizontalAlignment="Left" Height="100" Margin="55,385,0,0" VerticalAlignment="Top" Width="544" Background="{StaticResource ThirdColor}">
+            <Grid HorizontalAlignment="Left" Height="100" Margin="55,385,0,0" VerticalAlignment="Top" Width="544" Background="{DynamicResource ThirdColor}">
                 
                 <Label x:Name="mainColor" Content="Main Color:" HorizontalAlignment="Left" Height="27"  VerticalAlignment="Top" Width="74"/>
                 <xctk:ColorPicker Name="Main_Color" Height="30" DisplayColorAndName="True" Margin="74,2,263,68"/>

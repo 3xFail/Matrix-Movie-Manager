@@ -8,12 +8,11 @@
         Title="Matrix Movie Manager"
         WindowState="Maximized" WindowStyle="SingleBorderWindow"  Height="1080" Width="1920">
 
-    
 
 
-    <Border BorderBrush="Black" BorderThickness="5">
-        <Grid Background="{StaticResource MainColor}">
 
+    <Border x:Name="MainBorder" BorderBrush="{StaticResource BorderColor}" BorderThickness="5">
+        <Grid x:Name="MainBG" Background="{StaticResource MainColor}">
             <Border Name="prog_bar" Visibility="Collapsed" Panel.ZIndex="0" Background="Black" BorderBrush="Black" Height="300" Width="420" BorderThickness="1,1,1,1" CornerRadius="30,30,30,30">
                 <Grid  Height="300" Width="420" Background="Black">
                     <TextBlock Text="Please wait while movies load" HorizontalAlignment="Center" TextWrapping="WrapWithOverflow" TextAlignment="Center" VerticalAlignment="Top" Foreground="White" Width="400" Height="150" FontSize="48" />
@@ -21,7 +20,7 @@
                 </Grid>
             </Border>
 
-            <Border BorderBrush="{StaticResource BorderColor}" BorderThickness="3">
+            <Border x:Name="StackBorder" BorderBrush="{StaticResource BorderColor}" BorderThickness="3">
                 <StackPanel x:Name="Main_stack" HorizontalAlignment="Left" Margin="7,661,0,22" Width="139" Background="Gray">
                     <!--Need to Find a way to space things-->
                     <Button x:Name="My_Movies_Butt" Content="My Movies" Height="80" Click="My_Movies_Butt_Click" />

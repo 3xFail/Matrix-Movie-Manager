@@ -55,11 +55,11 @@ namespace Matrix_Movie_Manager.UI_Elements
 
             var myResourceDictionary = new ResourceDictionary();
             myResourceDictionary.Source = new Uri("Colors.xaml", UriKind.RelativeOrAbsolute);
-            Main_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["MainColor"]).Color;
-            Sec_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["SecondColor"]).Color;
-            Third_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["ThirdColor"]).Color;
-            Border_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["BorderColor"]).Color;
-            Text_Color.SelectedColor = ((SolidColorBrush)myResourceDictionary["FontColor"]).Color;
+            Main_Color.SelectedColor = ((SolidColorBrush)(System.Windows.Application.Current.Resources["MainColor"])).Color;
+            Sec_Color.SelectedColor = ((SolidColorBrush)(System.Windows.Application.Current.Resources["SecondColor"])).Color;
+            Third_Color.SelectedColor = ((SolidColorBrush)(System.Windows.Application.Current.Resources["ThirdColor"])).Color;
+            Border_Color.SelectedColor = ((SolidColorBrush)(System.Windows.Application.Current.Resources["BorderColor"])).Color;
+            Text_Color.SelectedColor = ((SolidColorBrush)(System.Windows.Application.Current.Resources["FontColor"])).Color;
         }
         // returns the aplication to the main screen
         private void Back_button_Click(object sender, RoutedEventArgs e)
